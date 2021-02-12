@@ -12,8 +12,7 @@ import AVFoundation
 var addAudio = false
 struct ContentView : View {
     
-    
-    @State var digitPredicted = "NA"
+
     
     @State var arView = ARViewContainer()
     
