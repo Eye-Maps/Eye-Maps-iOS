@@ -4,26 +4,24 @@
 //
 //  Created by Andreas on 2/6/21.
 //
-//test
 import SwiftUI
 import RealityKit
-import PencilKit
 import ARKit
 import Vision
 import AVFoundation
 var addAudio = false
 struct ContentView : View {
     
-    let pkCanvas = PKCanvasRepresentation()
+    
     @State var digitPredicted = "NA"
     
-   @State var arView = ARViewContainer()
+    @State var arView = ARViewContainer()
     
     var body: some View {
         VStack{
             arView.edgesIgnoringSafeArea(.all)
             
-
+            
             Button(action: {
                 addAudio = true
             }) {
@@ -36,7 +34,7 @@ struct ContentView : View {
     
     private func recognizeTextInImage(_ image: UIImage) {
         
-       
+        
     }
 }
 
@@ -49,8 +47,8 @@ class CustomBox: Entity, HasModel, HasAnchoring, HasCollision {
         self.components[ModelComponent] = ModelComponent(
             mesh: .generateBox(size: 0.1),
             materials: [SimpleMaterial(
-                color: color,
-                isMetallic: false)
+                            color: color,
+                            isMetallic: false)
             ]
         )
     }
@@ -69,7 +67,7 @@ class CustomBox: Entity, HasModel, HasAnchoring, HasCollision {
 
 struct ARViewContainer: UIViewRepresentable {
     
-   
+    
     
     func makeCoordinator() -> ARViewCoordinator{
         ARViewCoordinator(self)
@@ -81,7 +79,7 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         arView.addCoaching()
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-        camera.position = arView.cameraTransform.translation
+            camera.position = arView.cameraTransform.translation
         }
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
@@ -102,7 +100,7 @@ class ARViewCoordinator: NSObject, ARSessionDelegate {
     var arVC: ARViewContainer
     let textRecognitionWorkQueue = DispatchQueue(label: "VisionRequest", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
-  
+    
     
     init(_ control: ARViewContainer) {
         self.arVC = control
@@ -112,8 +110,8 @@ class ARViewCoordinator: NSObject, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
         if ready {
-       
-           
+            
+            
         }
         
     }
@@ -138,32 +136,20 @@ struct MyButtonStyle: ButtonStyle {
 }
 
 //MARK:- PencilKit SwiftUI
-struct PKCanvasRepresentation : UIViewRepresentable {
-    
-    let canvasView = PKCanvasView()
-    
-    func makeUIView(context: Context) -> PKCanvasView {
-        
-        canvasView.tool = PKInkingTool(.pen, color: .secondarySystemBackground, width: 40)
-        return canvasView
-    }
-    
-    func updateUIView(_ uiView: PKCanvasView, context: Context) {
-    }
-}
+
 
 extension ARView{
-   
-     
+    
+    
     
     func setupGestures() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.addGestureRecognizer(tap)
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-        if addAudio {
-            self.rayCastingMethod(point: self.center)
-            addAudio = false
-        }
+            if addAudio {
+                self.rayCastingMethod(point: self.center)
+                addAudio = false
+            }
         }
     }
     
@@ -173,7 +159,7 @@ extension ARView{
             return
         }
         
-       
+        
         let entities = self.entities(at: touchInView)
         
     }
@@ -182,13 +168,13 @@ extension ARView{
         
         
         guard let coordinator = self.session.delegate as? ARViewCoordinator else{ return }
-
+        
         guard let raycastQuery = self.makeRaycastQuery(from: point,
                                                        allowing: .existingPlaneInfinite,
                                                        alignment: .horizontal) else {
-                                                        
-                                                        print("failed first")
-                                                        return
+            
+            print("failed first")
+            return
         }
         
         guard let result = self.session.raycast(raycastQuery).first else {
@@ -200,7 +186,7 @@ extension ARView{
         let greenBox = CustomBox(color: .yellow)
         self.installGestures(.all, for: greenBox)
         greenBox.generateCollisionShapes(recursive: true)
-
+        
         let mesh = MeshResource.generateText(
             "",
             extrusionDepth: 0.1,
@@ -227,34 +213,34 @@ extension ARView{
         raycastAnchor.addChild(greenBox)
         
         do {
-          let resource = try AudioFileResource.load(named: audioFilePath, in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: true)
-          
-          let audioController = entity.prepareAudio(resource)
-          audioController.play()
-         
-          // If you want to start playing right away, you can replace lines 7-8 with line 11 below
-          // let audioController = entity.playAudio(resource)
+            let resource = try AudioFileResource.load(named: audioFilePath, in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: true)
+            
+            let audioController = entity.prepareAudio(resource)
+            audioController.play()
+            
+            // If you want to start playing right away, you can replace lines 7-8 with line 11 below
+            // let audioController = entity.playAudio(resource)
             raycastAnchor.addChild(entity)
             
             let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 
                 let anchorPosition = entity.transform.translation
                 let cameraPosition = camera.transform.translation
-
+                
                 // here’s a line connecting the two points, which might be useful for other things
                 let cameraToAnchor = cameraPosition - anchorPosition
                 // and here’s just the scalar distance
                 let distance = length(cameraToAnchor)
                 print(distance)
                 if distance > 0.3  {
-                   // audioController.stop()
+                    // audioController.stop()
                 }
             }
         } catch {
-          print("Error loading audio file")
+            print("Error loading audio file")
         }
-       
-
+        
+        
         // here’s a line connecting the two points, which might be useful for other things
         
         self.scene.addAnchor(raycastAnchor)
@@ -262,9 +248,9 @@ extension ARView{
 }
 extension ARView: ARSessionDelegate {
     public func session(_ session: ARSession,
-                       didUpdate frame: ARFrame) {
-      
-   }
+                        didUpdate frame: ARFrame) {
+        
+    }
 }
 extension ARView: ARCoachingOverlayViewDelegate {
     
@@ -277,7 +263,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
         let utterance = AVSpeechUtterance(string: "Move your device in a brightly lit area until I say stop")
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.5
-
+        
         let synthesizer = AVSpeechSynthesizer()
         //synthesizer.speak(utterance)
         coachingOverlay.goal = .anyPlane
@@ -290,12 +276,12 @@ extension ARView: ARCoachingOverlayViewDelegate {
         let utterance = AVSpeechUtterance(string: "You can place audio now")
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.5
-
+        
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
-       // ready = true
+        // ready = true
     }
-   
+    
 }
 
 #if DEBUG
