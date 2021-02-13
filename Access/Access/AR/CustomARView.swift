@@ -13,7 +13,9 @@ class CustomARView: ARView {
     // Referring to @EnvironmentObject
     var saveLoadState: SaveLoadState
     var arState: ARState
-    
+    var distances = [SIMD3<Float>]()
+    var anchorz = [ARAnchor]()
+    var transformations = [Transform]()
     var defaultConfiguration: ARWorldTrackingConfiguration {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
@@ -40,23 +42,16 @@ class CustomARView: ARView {
     }
 
     func setup() {
-        
         self.session.run(defaultConfiguration)
         self.session.delegate = self
-       // self.setupGestures()
+        self.setupGestures()
         self.debugOptions = [ .showFeaturePoints ]
-        
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            camera.position = self.cameraTransform.translation
-        }
-        addCoaching()
-        setupGestures()
     }
     
     // MARK: - AR content
     var virtualObjectAnchor: ARAnchor?
     let virtualObjectAnchorName = "virtualObject"
-   
+    var virtualObject = AssetModel(name: "teapot.usdz")
     
     
     // MARK: - AR session management
