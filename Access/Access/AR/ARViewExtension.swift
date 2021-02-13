@@ -86,7 +86,7 @@ extension CustomARView {
                    
                     let distance = length(camera.position(relativeTo: box))
                     print(distance)
-                    if distance < 0.3  {
+                    if distance < 1.1  {
                         if self.location.directions.count > step  {
                        // self.playSound(audioName: directions[step])
                         }

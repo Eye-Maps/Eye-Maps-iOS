@@ -83,7 +83,7 @@ class CustomARView: ARView {
             camera.position = self.cameraTransform.translation
             
             let distance = length(self.focusEntity!.position(relativeTo: camera))
-            print(distance)
+           // print(distance)
             if distance < 0.5 {
                 if !coolDown3 {
                 let utterance = AVSpeechUtterance(string: "Wall ahead")

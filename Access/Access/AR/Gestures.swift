@@ -46,7 +46,7 @@ extension CustomARView {
             let distance = AnchorEntity(raycastResult: result).position(relativeTo: AnchorEntity(world: virtualObjectAnchor!.transform))
             distances.append(distance)
             transformations.append(transformation.translation)
-            print(distance)
+           // print(distance)
         
         }
         i += 1
@@ -55,28 +55,28 @@ extension CustomARView {
  
 
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        // Disable placing objects when the session is still relocalizing
-      
-        // Hit test to find a place for a virtual object.
-        guard let point = sender?.location(in: self),
-              let hitTestResult = self.hitTest(
-                point,
-                types: [.existingPlaneUsingGeometry, .estimatedHorizontalPlane]
-        ).last
-        else { return }
-        
-        // Remove exisitng anchor and add new anchor
-      
-        // Add ARAnchor into ARView.session, which can be persisted in WorldMap
-            virtualObjectAnchor = ARAnchor(
-            name: virtualObjectAnchorName,
-                transform: hitTestResult.worldTransform
-            )
-            anchorz.append(virtualObjectAnchor!)
-        self.session.add(anchor: virtualObjectAnchor!)
-    
+           // Disable placing objects when the session is still relocalizing
+         
+           // Hit test to find a place for a virtual object.
+           guard let point = sender?.location(in: self),
+                 let hitTestResult = self.hitTest(
+                   point,
+                   types: [.existingPlaneUsingGeometry, .estimatedHorizontalPlane]
+           ).last
+           else { return }
+           
+           // Remove exisitng anchor and add new anchor
+         
+           // Add ARAnchor into ARView.session, which can be persisted in WorldMap
+               virtualObjectAnchor = ARAnchor(
+               name: virtualObjectAnchorName,
+                   transform: hitTestResult.worldTransform
+               )
+               anchorz.append(virtualObjectAnchor!)
+           self.session.add(anchor: virtualObjectAnchor!)
        
-    }
+          
+       }
     
 }
 var i = 0
