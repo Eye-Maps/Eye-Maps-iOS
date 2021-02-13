@@ -40,16 +40,13 @@ extension CustomARView {
             print("failed")
             return
         }
-        if i == 0 {
-        self.session.add(anchor: ARAnchor(transform: result.worldTransform))
-        
-        } else {
+      
             let transformation = Transform(matrix: result.worldTransform)
             let distance = AnchorEntity(raycastResult: result).position(relativeTo: AnchorEntity(world: virtualObjectAnchor!.transform))
             distances.append(distance)
             transformations.append(transformation)
             print(distance)
-        }
+        
         
         i += 1
         

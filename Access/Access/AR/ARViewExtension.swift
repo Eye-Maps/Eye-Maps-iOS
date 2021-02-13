@@ -11,6 +11,7 @@ import ARKit
 import AVFoundation
 
 var entities = [Entity]()
+
 extension CustomARView {
     
   
@@ -38,15 +39,17 @@ extension CustomARView {
                 
             }
             anchorz.append(virtualObjectAnchor!)
-            for i in distances.indices {
+            for i2 in transformations.indices {
+                var stop = false
                 let box = CustomBox(color: .cyan)
-                
-                box.transform = transformations[i]
+                var played = false
+                box.transform = transformations[i2]
                 //box.position = (distances[i])
                 anchorEntity.addChild(box)
                 Access.entities.append(box)
                 let audioSource = SCNAudioSource(fileNamed: "pulse.mp3")!
-                audioSource.loops = false
+                audioSource.loops = true
+               
                 // Decode the audio from disk ahead of time to prevent a delay in playback
                 audioSource.load()
                 do {
@@ -62,13 +65,17 @@ extension CustomARView {
                     let resource = try AudioFileResource.load(named: audioFilePath, in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: true)
                     let audioController = box.prepareAudio(resource)
                     let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                       
                         if Access.entities.count > step {
-                            if Access.entities[step].id == box.id {
+                                    if Access.entities[step] == box {
+                                print(i2)
+                                        audioController.play()
+                                                        timer.invalidate()
                                
-                    audioController.play()
-                                   
-                    }
-                    }
+                            } else {
+                                //audioController.pause()
+                            }
+                        }
                     }
                 let timer2 = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                     
@@ -83,8 +90,18 @@ extension CustomARView {
                         if directions.count > step  {
                        // self.playSound(audioName: directions[step])
                         }
+                        stop = true
                          audioController.stop()
-                        step += 1
+                        if !coolDown {
+          
+                          coolDown = true
+                            step += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                            coolDown = false
+                        }
+                        }
+                        
+                       
                         
                     }
                 }
