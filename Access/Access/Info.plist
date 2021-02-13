@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To improve your experience</string>
+	<key>NSLocationUsageDescription</key>
+	<string>To improve your experience</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To place 3D Sound Objects</string>
 	<key>CFBundleDevelopmentRegion</key>

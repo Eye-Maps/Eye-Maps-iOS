@@ -19,7 +19,7 @@ struct SaveLoadBtn: View {
                    
                     saveLoadState.loadButton.isPressed = true
                 }) {
-                    Text("Load Experience")
+                    Text("Load")
                         .padding(.horizontal, 14)
                         .padding(.vertical, 8)
                 }
@@ -36,7 +36,7 @@ struct SaveLoadBtn: View {
                 
                 saveLoadState.saveButton.isPressed = true
             }) {
-                Text("Save Experience")
+                Text("Save")
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
                 

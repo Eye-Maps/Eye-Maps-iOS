@@ -12,6 +12,16 @@ struct SelectView: View {
     @State var open = false
     @State var add = false
     @State var config = false
+    
+    @ObservedObject var locationManager = LocationManager()
+
+        var userLatitude: Double {
+            return locationManager.lastLocation?.coordinate.latitude ?? 0
+        }
+
+        var userLongitude: Double {
+            return locationManager.lastLocation?.coordinate.longitude ?? 0
+        }
     var body: some View {
         
         HStack {
