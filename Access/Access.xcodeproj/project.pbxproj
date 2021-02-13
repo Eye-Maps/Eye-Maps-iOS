@@ -28,6 +28,14 @@
 		E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0C25D7D43A00C5F841 /* Location.swift */; };
 		E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1125D7D44E00C5F841 /* LocationManager.swift */; };
 		E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1725D7D5D100C5F841 /* AddView.swift */; };
+		E1248D1C25D7F90A00C5F841 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1B25D7F90900C5F841 /* Plane.swift */; };
+		E1248D2725D7FB2900C5F841 /* FocusEntity+Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */; };
+		E1248D2825D7FB2900C5F841 /* float4x4+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */; };
+		E1248D2925D7FB2900C5F841 /* FocusEntity+Colored.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */; };
+		E1248D2A25D7FB2900C5F841 /* FocusEntityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */; };
+		E1248D2B25D7FB2900C5F841 /* FocusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2425D7FB2900C5F841 /* FocusEntity.swift */; };
+		E1248D2C25D7FB2900C5F841 /* FocusEntity+Classic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */; };
+		E1248D2D25D7FB2900C5F841 /* FocusEntity+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */; };
 		E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2425CF4E6200595460 /* AppDelegate.swift */; };
 		E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2625CF4E6200595460 /* SceneDelegate.swift */; };
 		E133DA2925CF4E6200595460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2825CF4E6200595460 /* ContentView.swift */; };
@@ -59,6 +67,14 @@
 		E1248D0C25D7D43A00C5F841 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E1248D1125D7D44E00C5F841 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1248D1725D7D5D100C5F841 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		E1248D1B25D7F90900C5F841 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Segment.swift"; sourceTree = "<group>"; };
+		E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "float4x4+Extension.swift"; sourceTree = "<group>"; };
+		E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Colored.swift"; sourceTree = "<group>"; };
+		E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusEntityComponent.swift; sourceTree = "<group>"; };
+		E1248D2425D7FB2900C5F841 /* FocusEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusEntity.swift; sourceTree = "<group>"; };
+		E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Classic.swift"; sourceTree = "<group>"; };
+		E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Alignment.swift"; sourceTree = "<group>"; };
 		E133DA2125CF4E6200595460 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E133DA2425CF4E6200595460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E133DA2625CF4E6200595460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +123,12 @@
 		E110BBC925D75D5E0096E657 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				E1248D3025D7FC4500C5F841 /* Foucs */,
 				E1248CFF25D7CFDC00C5F841 /* teapot.usdz */,
 				E110BBB625D758420096E657 /* ARViewExtension.swift */,
-				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
 				E110BBA725D756C00096E657 /* CustomARView.swift */,
+				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
+				E1248D1B25D7F90900C5F841 /* Plane.swift */,
 				E1248D0225D7D04800C5F841 /* AssetModel.swift */,
 				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
 				E110BBA425D753890096E657 /* SaveLoadMap.swift */,
@@ -137,6 +155,20 @@
 				E1248D1125D7D44E00C5F841 /* LocationManager.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		E1248D3025D7FC4500C5F841 /* Foucs */ = {
+			isa = PBXGroup;
+			children = (
+				E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */,
+				E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */,
+				E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */,
+				E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */,
+				E1248D2425D7FB2900C5F841 /* FocusEntity.swift */,
+				E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */,
+				E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */,
+			);
+			path = Foucs;
 			sourceTree = "<group>";
 		};
 		E133DA1825CF4E6200595460 = {
@@ -259,16 +291,20 @@
 			files = (
 				E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */,
 				E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */,
+				E1248D1C25D7F90A00C5F841 /* Plane.swift in Sources */,
 				E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */,
 				E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */,
+				E1248D2825D7FB2900C5F841 /* float4x4+Extension.swift in Sources */,
 				E1248CFD25D7CF5700C5F841 /* Gestures.swift in Sources */,
 				E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */,
 				E133DA2925CF4E6200595460 /* ContentView.swift in Sources */,
+				E1248D2D25D7FB2900C5F841 /* FocusEntity+Alignment.swift in Sources */,
 				E1248D0725D7D3D400C5F841 /* SelectView.swift in Sources */,
 				E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */,
 				E110BBAB25D756F30096E657 /* ARState.swift in Sources */,
 				E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */,
 				E110BBB425D757C30096E657 /* Extensions.swift in Sources */,
+				E1248D2C25D7FB2900C5F841 /* FocusEntity+Classic.swift in Sources */,
 				E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */,
 				E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */,
 				E110BBB125D757170096E657 /* ButtonState.swift in Sources */,
@@ -276,6 +312,10 @@
 				E110BBAE25D756FD0096E657 /* SaveLoadState.swift in Sources */,
 				E1248D0325D7D04800C5F841 /* AssetModel.swift in Sources */,
 				E110BBA525D753890096E657 /* SaveLoadMap.swift in Sources */,
+				E1248D2A25D7FB2900C5F841 /* FocusEntityComponent.swift in Sources */,
+				E1248D2B25D7FB2900C5F841 /* FocusEntity.swift in Sources */,
+				E1248D2925D7FB2900C5F841 /* FocusEntity+Colored.swift in Sources */,
+				E1248D2725D7FB2900C5F841 /* FocusEntity+Segment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

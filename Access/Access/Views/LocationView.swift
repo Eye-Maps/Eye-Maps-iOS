@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct LocationView: View {
-    @State var location: Location
+    @Binding var location: Location
     @Binding var open: Bool
     @Binding var config: Bool
+    
     var body: some View {
-        Button(action: {
-            config = true
-            open = true
-        }) {
+        
           
         
         ZStack {
@@ -41,6 +39,6 @@ struct LocationView: View {
         }
     }
     }
-}
+
 
 }

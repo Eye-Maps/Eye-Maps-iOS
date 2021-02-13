@@ -43,7 +43,7 @@ extension CustomARView {
                 var stop = false
                 let box = CustomBox(color: .cyan)
                 var played = false
-                box.transform = transformations[i2]
+                box.transform.translation = transformations[i2]
                 //box.position = (distances[i])
                 anchorEntity.addChild(box)
                 Access.entities.append(box)
@@ -87,7 +87,7 @@ extension CustomARView {
                     let distance = length(camera.position(relativeTo: box))
                     print(distance)
                     if distance < 0.3  {
-                        if directions.count > step  {
+                        if self.location.directions.count > step  {
                        // self.playSound(audioName: directions[step])
                         }
                         stop = true
@@ -167,6 +167,8 @@ extension CustomARView: ARSessionDelegate {
         for anchor in anchors {
             addAnchorEntityToScene(anchor: anchor)
         }
+    
     }
+
 }
 var coolDown2 = false

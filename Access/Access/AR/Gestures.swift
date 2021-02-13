@@ -13,7 +13,7 @@ extension CustomARView {
     /// Add the tap gesture recogniser
     func setupGestures() {
       let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-      //self.addGestureRecognizer(tap)
+      self.addGestureRecognizer(tap)
         
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if addAudio {
@@ -42,12 +42,13 @@ extension CustomARView {
         }
       
             let transformation = Transform(matrix: result.worldTransform)
+        if virtualObjectAnchor != nil {
             let distance = AnchorEntity(raycastResult: result).position(relativeTo: AnchorEntity(world: virtualObjectAnchor!.transform))
             distances.append(distance)
-            transformations.append(transformation)
+            transformations.append(transformation.translation)
             print(distance)
         
-        
+        }
         i += 1
         
     }
@@ -65,11 +66,7 @@ extension CustomARView {
         else { return }
         
         // Remove exisitng anchor and add new anchor
-        if i != 0 {
-            rayCastingMethod(point: point)
-       
-        
-        } else {
+      
         // Add ARAnchor into ARView.session, which can be persisted in WorldMap
             virtualObjectAnchor = ARAnchor(
             name: virtualObjectAnchorName,
@@ -77,8 +74,8 @@ extension CustomARView {
             )
             anchorz.append(virtualObjectAnchor!)
         self.session.add(anchor: virtualObjectAnchor!)
-    }
-        i += 1
+    
+       
     }
     
 }

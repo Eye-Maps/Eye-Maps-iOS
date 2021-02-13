@@ -14,10 +14,12 @@ extension CustomARView {
     // MARK: - Persistence: Saving and Loading
     
     func loadExperience() {
-        
+         var worldMapData: Data? = {
+            storedData.data(forKey: location.id.uuidString)
+        }()
         /// - Tag: ReadWorldMap
         let worldMap: ARWorldMap = {
-            guard let data = self.worldMapData
+            guard let data = worldMapData
                 else { fatalError("Map data should already be verified to exist before Load button is enabled.") }
             do {
                 guard let worldMap = try NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data)
@@ -61,7 +63,7 @@ extension CustomARView {
             
             do {
                 let data = try NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true)
-                self.storedData.set(data, forKey: self.mapKey)
+                self.storedData.set(data, forKey:self.location.id.uuidString)
                 DispatchQueue.main.async {
                     self.saveLoadState.loadButton.isHidden = false
                     self.saveLoadState.loadButton.isEnabled = true

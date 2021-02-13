@@ -27,16 +27,29 @@ struct ContentView : View {
             fatalError("Can't get file save URL: \(error.localizedDescription)")
         }
     }()
-    @State var arView = ARViewContainer()
+   
     
     @State var storedData = UserDefaults.standard
     @State var mapKey = "ar.worldmap"
-
+    @Binding var location: Location
     @State  var worldMapData: Data? = Data()
     var body: some View {
-        
-        VStack{
-            arView.edgesIgnoringSafeArea(.all)
+        ZStack {
+            
+            Color.clear
+                .onAppear() {
+                    directions = location.directions
+                    worldMapData = location.worldData
+                    transformations = location.transformations
+                    let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                        location.directions = directions
+                        location.worldData = worldMapData ?? Data()
+                        location.transformations = transformations
+                    }
+                }
+        VStack {
+            
+            ARViewContainer(location: $location).edgesIgnoringSafeArea(.all)
                 .onAppear() {
                     storedData.data(forKey: mapKey)
                    }
@@ -46,24 +59,28 @@ struct ContentView : View {
                 Menu {
                                     
                     Button(action: {
+                        location.directions.append("left")
                         directions.append("left")
                         addAudio = true
                     }) {
                         Text("Turn Left")
                     }
                     Button(action: {
+                        location.directions.append("right")
                         directions.append("right")
                         addAudio = true
                     }) {
                         Text("Turn Right")
                     }
                     Button(action: {
+                        location.directions.append("straight")
                         directions.append("straight")
                         addAudio = true
                     }) {
                         Text("Continue Straight")
                     }
                     Button(action: {
+                        location.directions.append("arrived")
                         directions.append("arrived")
                         addAudio = true
                     }) {
@@ -78,11 +95,8 @@ struct ContentView : View {
             } .padding()
         }
     }
-    
-    private func recognizeTextInImage(_ image: UIImage) {
-        
-        
     }
+    
     
 }
 
@@ -116,7 +130,7 @@ class CustomBox: Entity, HasModel, HasAnchoring, HasCollision {
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var saveLoadState: SaveLoadState
     @EnvironmentObject var arState: ARState
-    
+    @Binding var location: Location
     func makeUIView(context: Context) -> CustomARView {
         
         guard ARWorldTrackingConfiguration.isSupported else {
@@ -132,7 +146,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         // Pass in @EnvironmentObject
-        let arView = CustomARView(frame: .zero, saveLoadState: saveLoadState, arState: arState)
+        let arView = CustomARView(frame: .zero, saveLoadState: saveLoadState, arState: arState, location: location)
         
         // Read in any already saved map to see if we can load one.
         if arView.worldMapData != nil {
