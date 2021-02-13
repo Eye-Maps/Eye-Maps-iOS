@@ -16,6 +16,10 @@
 		E110BBB425D757C30096E657 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBB325D757C30096E657 /* Extensions.swift */; };
 		E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBB625D758420096E657 /* ARViewExtension.swift */; };
 		E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */; };
+		E110BBC125D75D480096E657 /* arrived.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBD25D75D470096E657 /* arrived.mp3 */; };
+		E110BBC225D75D480096E657 /* left.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBE25D75D470096E657 /* left.mp3 */; };
+		E110BBC325D75D480096E657 /* right.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBF25D75D480096E657 /* right.mp3 */; };
+		E110BBC425D75D480096E657 /* straight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBC025D75D480096E657 /* straight.mp3 */; };
 		E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2425CF4E6200595460 /* AppDelegate.swift */; };
 		E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2625CF4E6200595460 /* SceneDelegate.swift */; };
 		E133DA2925CF4E6200595460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2825CF4E6200595460 /* ContentView.swift */; };
@@ -35,6 +39,10 @@
 		E110BBB325D757C30096E657 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E110BBB625D758420096E657 /* ARViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewExtension.swift; sourceTree = "<group>"; };
 		E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadBtn.swift; sourceTree = "<group>"; };
+		E110BBBD25D75D470096E657 /* arrived.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arrived.mp3; sourceTree = "<group>"; };
+		E110BBBE25D75D470096E657 /* left.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = left.mp3; sourceTree = "<group>"; };
+		E110BBBF25D75D480096E657 /* right.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = right.mp3; sourceTree = "<group>"; };
+		E110BBC025D75D480096E657 /* straight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = straight.mp3; sourceTree = "<group>"; };
 		E133DA2125CF4E6200595460 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E133DA2425CF4E6200595460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E133DA2625CF4E6200595460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E110BBC625D75D4C0096E657 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				E110BBBD25D75D470096E657 /* arrived.mp3 */,
+				E110BBBE25D75D470096E657 /* left.mp3 */,
+				E110BBBF25D75D480096E657 /* right.mp3 */,
+				E110BBC025D75D480096E657 /* straight.mp3 */,
+				E133DA3925CF4E8200595460 /* pulse.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		E110BBC725D75D580096E657 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E133DA2825CF4E6200595460 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E110BBC925D75D5E0096E657 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				E110BBB625D758420096E657 /* ARViewExtension.swift */,
+				E110BBA725D756C00096E657 /* CustomARView.swift */,
+				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
+				E110BBA425D753890096E657 /* SaveLoadMap.swift */,
+				E110BBB325D757C30096E657 /* Extensions.swift */,
+				E110BBAA25D756F30096E657 /* ARState.swift */,
+				E110BBB025D757170096E657 /* ButtonState.swift */,
+				E110BBAD25D756FD0096E657 /* SaveLoadState.swift */,
+				E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
 		E133DA1825CF4E6200595460 = {
 			isa = PBXGroup;
 			children = (
@@ -78,17 +122,9 @@
 			children = (
 				E133DA2425CF4E6200595460 /* AppDelegate.swift */,
 				E133DA2625CF4E6200595460 /* SceneDelegate.swift */,
-				E110BBB625D758420096E657 /* ARViewExtension.swift */,
-				E110BBA725D756C00096E657 /* CustomARView.swift */,
-				E133DA2825CF4E6200595460 /* ContentView.swift */,
-				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
-				E110BBA425D753890096E657 /* SaveLoadMap.swift */,
-				E110BBB325D757C30096E657 /* Extensions.swift */,
-				E110BBAA25D756F30096E657 /* ARState.swift */,
-				E110BBB025D757170096E657 /* ButtonState.swift */,
-				E110BBAD25D756FD0096E657 /* SaveLoadState.swift */,
-				E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */,
-				E133DA3925CF4E8200595460 /* pulse.mp3 */,
+				E110BBC725D75D580096E657 /* Views */,
+				E110BBC925D75D5E0096E657 /* AR */,
+				E110BBC625D75D4C0096E657 /* Audio */,
 				E133DA2A25CF4E6200595460 /* Assets.xcassets */,
 				E133DA2F25CF4E6200595460 /* LaunchScreen.storyboard */,
 				E133DA3225CF4E6200595460 /* Info.plist */,
@@ -162,10 +198,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E110BBC425D75D480096E657 /* straight.mp3 in Resources */,
+				E110BBC125D75D480096E657 /* arrived.mp3 in Resources */,
 				E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */,
 				E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */,
+				E110BBC325D75D480096E657 /* right.mp3 in Resources */,
 				E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */,
 				E133DA2B25CF4E6200595460 /* Assets.xcassets in Resources */,
+				E110BBC225D75D480096E657 /* left.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
