@@ -60,6 +60,7 @@ struct SelectView: View {
                     
                     }
             if ready {
+                ScrollView {
             VStack {
         HStack {
             Spacer()
@@ -121,6 +122,7 @@ struct SelectView: View {
                 }
             }
        }
+            }
             }
     }
         }

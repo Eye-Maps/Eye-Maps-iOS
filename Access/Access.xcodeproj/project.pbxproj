@@ -45,6 +45,9 @@
 		E1BF3CC525D829B1000EE54E /* teapot.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC425D829B1000EE54E /* teapot.scn */; };
 		E1BF3CC925D83807000EE54E /* Box.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC825D83807000EE54E /* Box.scn */; };
 		E1BF3CCD25D83A1D000EE54E /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCC25D83A1D000EE54E /* teapot.usdz */; };
+		E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCF25D86F18000EE54E /* door.mp3 */; };
+		E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD025D86F18000EE54E /* steps.mp3 */; };
+		E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD425D86F3C000EE54E /* 002.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,9 @@
 		E1BF3CC425D829B1000EE54E /* teapot.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = teapot.scn; sourceTree = "<group>"; };
 		E1BF3CC825D83807000EE54E /* Box.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Box.scn; sourceTree = "<group>"; };
 		E1BF3CCC25D83A1D000EE54E /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = teapot.usdz; path = "../../../../../Downloads/EyeMap-master-2/Access/Access/AR/teapot.usdz"; sourceTree = "<group>"; };
+		E1BF3CCF25D86F18000EE54E /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
+		E1BF3CD025D86F18000EE54E /* steps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = steps.mp3; sourceTree = "<group>"; };
+		E1BF3CD425D86F3C000EE54E /* 002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 002.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				E110BBBF25D75D480096E657 /* right.mp3 */,
 				E110BBC025D75D480096E657 /* straight.mp3 */,
 				E133DA3925CF4E8200595460 /* pulse.mp3 */,
+				E1BF3CCF25D86F18000EE54E /* door.mp3 */,
+				E1BF3CD025D86F18000EE54E /* steps.mp3 */,
+				E1BF3CD425D86F3C000EE54E /* 002.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -276,8 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */,
+				E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */,
 				E1BF3CC925D83807000EE54E /* Box.scn in Resources */,
 				E110BBC425D75D480096E657 /* straight.mp3 in Resources */,
+				E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */,
 				E110BBC125D75D480096E657 /* arrived.mp3 in Resources */,
 				E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */,
 				E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */,

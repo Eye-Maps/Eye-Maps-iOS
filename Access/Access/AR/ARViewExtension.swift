@@ -25,12 +25,13 @@ extension CustomARView {
             virtualObjectAnchor = anchor
         }
         
-        if let modelEntity = virtualObject.modelEntity {
+         let modelEntity = virtualObject
             print("DEBUG: adding model to scene - \(virtualObject.name)")
             
             // Add modelEntity and anchorEntity into the scene for rendering
             let anchorEntity = AnchorEntity(anchor: anchor)
             anchorEntity.addChild(modelEntity)
+        modelEntity.transform.translation = anchor.transform.translation
             do {
                
                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
@@ -47,8 +48,8 @@ extension CustomARView {
                 //box.position = (distances[i])
                 anchorEntity.addChild(box)
                 Access.entities.append(box)
-                let audioSource = SCNAudioSource(fileNamed: "pulse.mp3")!
-                audioSource.loops = true
+                let audioSource = SCNAudioSource(fileNamed: "002.mp3")!
+                audioSource.loops = false
                
                 // Decode the audio from disk ahead of time to prevent a delay in playback
                 audioSource.load()
@@ -58,7 +59,7 @@ extension CustomARView {
                     
                 }
                 
-                let audioFilePath = "pulse.mp3"
+                let audioFilePath = "002.mp3"
                 
                 
                 do {
@@ -88,15 +89,15 @@ extension CustomARView {
                     print(distance)
                     if distance < 1.1  {
                         if self.location.directions.count > step  {
-                       // self.playSound(audioName: directions[step])
+                        self.playSound(audioName: directions[step])
                         }
                         stop = true
-                         audioController.stop()
+                        audioController.stop()
                         if !coolDown {
-          
+                            
                           coolDown = true
                             step += 1
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                             coolDown = false
                         }
                         }
@@ -111,9 +112,7 @@ extension CustomARView {
                 }
             }
             self.scene.addAnchor(anchorEntity)
-        } else {
-            print("DEBUG: Unable to load modelEntity for \(virtualObject.name)")
-        }
+        
     }
     func playSound(audioName: String) {
          guard let url = Bundle.main.url(forResource: audioName, withExtension: "mp3") else { return }
@@ -121,7 +120,7 @@ extension CustomARView {
            
          do {
             
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .mixWithOthers)
                
             
           

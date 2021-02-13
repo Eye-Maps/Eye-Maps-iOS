@@ -103,7 +103,7 @@ class CustomARView: ARView {
     // MARK: - AR content
     var virtualObjectAnchor: ARAnchor?
     let virtualObjectAnchorName = "virtualObject"
-    var virtualObject = AssetModel(name: "teapot.usdz")
+    var virtualObject = CustomBox(color: .systemRed)
     
     
     // MARK: - AR session management

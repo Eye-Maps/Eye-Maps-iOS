@@ -86,6 +86,21 @@ struct ContentView : View {
                     }) {
                         Text("You've arrived")
                     }
+                    Button(action: {
+                        location.directions.append("door")
+                        directions.append("door")
+                        addAudio = true
+                    }) {
+                        Text("Door Ahead")
+                    }
+                    Button(action: {
+                        location.directions.append("steps")
+                        directions.append("steps")
+                        addAudio = true
+                    }) {
+                        Text("Steps Ahead")
+                    }
+                   
                                   }
                                   label: {
                                       Label("Place Audio", systemImage: "plus")
