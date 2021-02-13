@@ -13,7 +13,7 @@ var addAudio = false
 struct ContentView : View {
     
 
-    
+   
     @State var arView = ARViewContainer()
     
     var body: some View {
@@ -135,12 +135,12 @@ struct MyButtonStyle: ButtonStyle {
 }
 
 //MARK:- PencilKit SwiftUI
-
-
+var step = 0
+var entities = [Entity]()
 extension ARView{
     
     
-    
+     
     func setupGestures() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.addGestureRecognizer(tap)
@@ -197,7 +197,7 @@ extension ARView{
         let material = SimpleMaterial(color: .red, isMetallic: false)
         let entity = ModelEntity(mesh: mesh, materials: [material])
         entity.scale = SIMD3<Float>(0.03, 0.03, 0.1)
-        
+        Access.entities.append(entity)
         greenBox.addChild(entity)
         greenBox.transform = transformation
         //setting relative position...
@@ -206,33 +206,42 @@ extension ARView{
         audioSource.loops = true
         // Decode the audio from disk ahead of time to prevent a delay in playback
         audioSource.load()
-        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+        } catch {
+            
+        }
         let raycastAnchor = AnchorEntity(raycastResult: result)
         let audioFilePath = "pulse.mp3"
         raycastAnchor.addChild(greenBox)
         
         do {
             let resource = try AudioFileResource.load(named: audioFilePath, in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: true)
-            
             let audioController = entity.prepareAudio(resource)
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                if Access.entities.count > step {
+            if Access.entities[step] == entity {
+           
             audioController.play()
-            
+            }
+            }
+            }
             // If you want to start playing right away, you can replace lines 7-8 with line 11 below
             // let audioController = entity.playAudio(resource)
             raycastAnchor.addChild(entity)
             
-            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            let timer2 = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 
                 let anchorPosition = entity.transform.translation
                 let cameraPosition = camera.transform.translation
                 
                 // here’s a line connecting the two points, which might be useful for other things
-                let cameraToAnchor = cameraPosition - anchorPosition
-                // and here’s just the scalar distance
-                let distance = length(cameraToAnchor)
+               
+                let distance = length(camera.position(relativeTo: entity))
                 print(distance)
-                if distance > 0.3  {
-                    // audioController.stop()
+                if distance < 10  {
+                     audioController.stop()
+                    step += 1
                 }
             }
         } catch {
@@ -272,6 +281,11 @@ extension ARView: ARCoachingOverlayViewDelegate {
     public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
         coachingOverlayView.activatesAutomatically = false
         //Ready to add objects
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+        } catch {
+            
+        }
         let utterance = AVSpeechUtterance(string: "You can place audio now")
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.5
