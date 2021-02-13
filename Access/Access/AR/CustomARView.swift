@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 import ARKit
 
+var camera = Entity()
 class CustomARView: ARView {
     // Referring to @EnvironmentObject
     var saveLoadState: SaveLoadState
@@ -46,6 +47,9 @@ class CustomARView: ARView {
         self.session.delegate = self
         self.setupGestures()
         self.debugOptions = [ .showFeaturePoints ]
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            camera.position = self.cameraTransform.translation
+        }
     }
     
     // MARK: - AR content

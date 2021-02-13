@@ -23,6 +23,11 @@
 		E1248CFD25D7CF5700C5F841 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248CFC25D7CF5700C5F841 /* Gestures.swift */; };
 		E1248D0025D7CFDC00C5F841 /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E1248CFF25D7CFDC00C5F841 /* teapot.usdz */; };
 		E1248D0325D7D04800C5F841 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0225D7D04800C5F841 /* AssetModel.swift */; };
+		E1248D0725D7D3D400C5F841 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0625D7D3D400C5F841 /* SelectView.swift */; };
+		E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0925D7D3DA00C5F841 /* LocationView.swift */; };
+		E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0C25D7D43A00C5F841 /* Location.swift */; };
+		E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1125D7D44E00C5F841 /* LocationManager.swift */; };
+		E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1725D7D5D100C5F841 /* AddView.swift */; };
 		E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2425CF4E6200595460 /* AppDelegate.swift */; };
 		E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2625CF4E6200595460 /* SceneDelegate.swift */; };
 		E133DA2925CF4E6200595460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2825CF4E6200595460 /* ContentView.swift */; };
@@ -49,6 +54,11 @@
 		E1248CFC25D7CF5700C5F841 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
 		E1248CFF25D7CFDC00C5F841 /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = teapot.usdz; sourceTree = "<group>"; };
 		E1248D0225D7D04800C5F841 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
+		E1248D0625D7D3D400C5F841 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
+		E1248D0925D7D3DA00C5F841 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		E1248D0C25D7D43A00C5F841 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E1248D1125D7D44E00C5F841 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E1248D1725D7D5D100C5F841 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		E133DA2125CF4E6200595460 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E133DA2425CF4E6200595460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E133DA2625CF4E6200595460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				E133DA2825CF4E6200595460 /* ContentView.swift */,
+				E1248D0625D7D3D400C5F841 /* SelectView.swift */,
+				E1248D1725D7D5D100C5F841 /* AddView.swift */,
+				E1248D0925D7D3DA00C5F841 /* LocationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +121,22 @@
 				E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */,
 			);
 			path = AR;
+			sourceTree = "<group>";
+		};
+		E1248D0F25D7D43E00C5F841 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E1248D0C25D7D43A00C5F841 /* Location.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E1248D1425D7D45100C5F841 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				E1248D1125D7D44E00C5F841 /* LocationManager.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		E133DA1825CF4E6200595460 = {
@@ -132,6 +161,8 @@
 				E133DA2425CF4E6200595460 /* AppDelegate.swift */,
 				E133DA2625CF4E6200595460 /* SceneDelegate.swift */,
 				E110BBC725D75D580096E657 /* Views */,
+				E1248D1425D7D45100C5F841 /* Location */,
+				E1248D0F25D7D43E00C5F841 /* Data */,
 				E110BBC925D75D5E0096E657 /* AR */,
 				E110BBC625D75D4C0096E657 /* Audio */,
 				E133DA2A25CF4E6200595460 /* Assets.xcassets */,
@@ -227,11 +258,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */,
+				E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */,
 				E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */,
 				E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */,
 				E1248CFD25D7CF5700C5F841 /* Gestures.swift in Sources */,
+				E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */,
 				E133DA2925CF4E6200595460 /* ContentView.swift in Sources */,
+				E1248D0725D7D3D400C5F841 /* SelectView.swift in Sources */,
+				E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */,
 				E110BBAB25D756F30096E657 /* ARState.swift in Sources */,
+				E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */,
 				E110BBB425D757C30096E657 /* Extensions.swift in Sources */,
 				E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */,
 				E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */,

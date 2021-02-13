@@ -13,7 +13,14 @@ extension CustomARView {
     /// Add the tap gesture recogniser
     func setupGestures() {
       let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-      self.addGestureRecognizer(tap)
+      //self.addGestureRecognizer(tap)
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            if addAudio {
+                self.rayCastingMethod(point: self.center)
+                addAudio = false
+            }
+        }
     }
 
     // MARK: - Placing AR Content
@@ -76,5 +83,6 @@ extension CustomARView {
     }
         i += 1
     }
+    
 }
 var i = 0
