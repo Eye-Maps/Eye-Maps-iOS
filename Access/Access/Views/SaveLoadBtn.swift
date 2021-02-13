@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SaveLoadBtn: View {
     @EnvironmentObject var saveLoadState: SaveLoadState
-
+    @EnvironmentObject var arState: ARState
     var body: some View {
         HStack {
             // Load Button
             if !saveLoadState.loadButton.isHidden {
                 Button(action: {
                     print("DEBUG: Load ARWorld map.")
-                    
+                    arState.isThumbnailHidden = false
                     saveLoadState.loadButton.isPressed = true
                 }) {
                     Text("Load Experience")

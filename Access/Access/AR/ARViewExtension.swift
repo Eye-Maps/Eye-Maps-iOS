@@ -12,6 +12,11 @@ import RealityKit
 var step = 0
 var entities = [Entity]()
 let camera = Entity()
+var player: AVAudioPlayer?
+var coolDown = false
+
+
+
 extension CustomARView {
     
     
@@ -37,7 +42,9 @@ extension CustomARView {
         let entities = self.entities(at: touchInView)
         
     }
-    
+    func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool {
+        return true
+    }
     func rayCastingMethod(point: CGPoint) {
         
         
@@ -96,8 +103,9 @@ extension CustomARView {
             let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 if Access.entities.count > step {
             if Access.entities[step] == entity {
-           
+                if !self.arState.isConfigView {
             audioController.play()
+                }
             }
             }
             }
@@ -115,6 +123,11 @@ extension CustomARView {
                 let distance = length(camera.position(relativeTo: entity))
                 print(distance)
                 if distance < 10  {
+                    if directions.count > step {
+                        if !self.arState.isConfigView {
+                        self.playSound(audioName: directions[step])
+                        }
+                    }
                      audioController.stop()
                     step += 1
                 }
@@ -128,11 +141,56 @@ extension CustomARView {
         
         self.scene.addAnchor(raycastAnchor)
     }
+   
+   
+    func playSound(audioName: String) {
+         guard let url = Bundle.main.url(forResource: audioName, withExtension: "mp3") else { return }
+        if !coolDown {
+            if !self.arState.isConfigView {
+         do {
+            
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+               
+            
+          
+             try AVAudioSession.sharedInstance().setActive(true)
+         
+         
+             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+             /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+
+             guard let player = player else { return }
+
+             player.play()
+
+           
+            
+         } catch let error {
+             print(error.localizedDescription)
+         }
+           
+            coolDown = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                coolDown = false
+            }
+            }
+        }
+ }
 }
-extension ARView: ARSessionDelegate {
+extension CustomARView: ARSessionDelegate {
     public func session(_ session: ARSession,
                         didUpdate frame: ARFrame) {
         
+    }
+    public func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        print("did add anchor: \(anchors.count) anchors in total")
+        
+        for anchor in anchors {
+            addAnchorEntityToScene(anchor: anchor)
+        }
     }
 }
 extension ARView: ARCoachingOverlayViewDelegate {
@@ -168,6 +226,105 @@ extension ARView: ARCoachingOverlayViewDelegate {
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
         // ready = true
+    }
+    
+}
+var virtualObject = Entity()
+extension CustomARView {
+    
+    func addAnchorEntityToScene(anchor: ARAnchor) {
+        guard anchor.name == virtualObjectAnchorName else {
+            return
+        }
+        // save the reference to the virtual object anchor when the anchor is added from relocalizing
+        if virtualObjectAnchor == nil {
+            virtualObjectAnchor = anchor
+        }
+        
+         let modelEntity = virtualObject
+            print("DEBUG: adding model to scene - \(virtualObject.name)")
+            
+            // Add modelEntity and anchorEntity into the scene for rendering
+            let anchorEntity = AnchorEntity(anchor: anchor)
+           
+           
+       
+        let greenBox = CustomBox(color: .yellow)
+        self.installGestures(.all, for: greenBox)
+        greenBox.generateCollisionShapes(recursive: true)
+        
+        let mesh = MeshResource.generateText(
+            "",
+            extrusionDepth: 0.1,
+            font: .systemFont(ofSize: 2),
+            containerFrame: .zero,
+            alignment: .left,
+            lineBreakMode: .byTruncatingTail)
+        
+        let material = SimpleMaterial(color: .red, isMetallic: false)
+        let entity = ModelEntity(mesh: mesh, materials: [material])
+        entity.scale = SIMD3<Float>(0.03, 0.03, 0.1)
+        Access.entities.append(entity)
+        greenBox.addChild(entity)
+      
+        //setting relative position...
+        entity.setPosition(SIMD3<Float>(0, 0.05, 0), relativeTo: greenBox)
+        let audioSource = SCNAudioSource(fileNamed: "pulse.mp3")!
+        audioSource.loops = true
+        // Decode the audio from disk ahead of time to prevent a delay in playback
+        audioSource.load()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+        } catch {
+            
+        }
+        
+        let audioFilePath = "pulse.mp3"
+       
+        
+        do {
+            let resource = try AudioFileResource.load(named: audioFilePath, in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: true)
+            let audioController = entity.prepareAudio(resource)
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                if Access.entities.count > step {
+            if Access.entities[step] == entity {
+                if !self.arState.isConfigView {
+            audioController.play()
+                }
+            }
+            }
+            }
+            // If you want to start playing right away, you can replace lines 7-8 with line 11 below
+            // let audioController = entity.playAudio(resource)
+           
+            
+            let timer2 = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                
+                let anchorPosition = entity.transform.translation
+                let cameraPosition = camera.transform.translation
+                
+                // here’s a line connecting the two points, which might be useful for other things
+               
+                let distance = length(camera.position(relativeTo: entity))
+                print(distance)
+                if distance < 10  {
+                    if directions.count > step {
+                        if !self.arState.isConfigView {
+                        self.playSound(audioName: directions[step])
+                        }
+                    }
+                     audioController.stop()
+                    step += 1
+                }
+            }
+        } catch {
+            print("Error loading audio file")
+        }
+        anchorEntity.addChild(greenBox)
+        self.scene.addAnchor(anchorEntity)
+        // here’s a line connecting the two points, which might be useful for other things
+        
+       
     }
     
 }

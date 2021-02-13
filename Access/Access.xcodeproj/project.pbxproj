@@ -20,6 +20,9 @@
 		E110BBC225D75D480096E657 /* left.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBE25D75D470096E657 /* left.mp3 */; };
 		E110BBC325D75D480096E657 /* right.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBF25D75D480096E657 /* right.mp3 */; };
 		E110BBC425D75D480096E657 /* straight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBC025D75D480096E657 /* straight.mp3 */; };
+		E110BBCD25D7627E0096E657 /* ConfigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBCC25D7627D0096E657 /* ConfigureView.swift */; };
+		E110BBD025D762880096E657 /* UseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBCF25D762880096E657 /* UseView.swift */; };
+		E110BBD825D770A10096E657 /* SnapshotThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBD725D770A10096E657 /* SnapshotThumbnail.swift */; };
 		E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2425CF4E6200595460 /* AppDelegate.swift */; };
 		E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2625CF4E6200595460 /* SceneDelegate.swift */; };
 		E133DA2925CF4E6200595460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2825CF4E6200595460 /* ContentView.swift */; };
@@ -43,6 +46,9 @@
 		E110BBBE25D75D470096E657 /* left.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = left.mp3; sourceTree = "<group>"; };
 		E110BBBF25D75D480096E657 /* right.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = right.mp3; sourceTree = "<group>"; };
 		E110BBC025D75D480096E657 /* straight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = straight.mp3; sourceTree = "<group>"; };
+		E110BBCC25D7627D0096E657 /* ConfigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureView.swift; sourceTree = "<group>"; };
+		E110BBCF25D762880096E657 /* UseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseView.swift; sourceTree = "<group>"; };
+		E110BBD725D770A10096E657 /* SnapshotThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotThumbnail.swift; sourceTree = "<group>"; };
 		E133DA2125CF4E6200595460 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E133DA2425CF4E6200595460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E133DA2625CF4E6200595460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				E133DA2825CF4E6200595460 /* ContentView.swift */,
+				E110BBCC25D7627D0096E657 /* ConfigureView.swift */,
+				E110BBCF25D762880096E657 /* UseView.swift */,
+				E110BBD725D770A10096E657 /* SnapshotThumbnail.swift */,
+				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -88,9 +98,8 @@
 		E110BBC925D75D5E0096E657 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				E110BBB625D758420096E657 /* ARViewExtension.swift */,
 				E110BBA725D756C00096E657 /* CustomARView.swift */,
-				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
+				E110BBB625D758420096E657 /* ARViewExtension.swift */,
 				E110BBA425D753890096E657 /* SaveLoadMap.swift */,
 				E110BBB325D757C30096E657 /* Extensions.swift */,
 				E110BBAA25D756F30096E657 /* ARState.swift */,
@@ -216,17 +225,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E110BBCD25D7627E0096E657 /* ConfigureView.swift in Sources */,
 				E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */,
 				E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */,
 				E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */,
 				E133DA2925CF4E6200595460 /* ContentView.swift in Sources */,
 				E110BBAB25D756F30096E657 /* ARState.swift in Sources */,
+				E110BBD825D770A10096E657 /* SnapshotThumbnail.swift in Sources */,
 				E110BBB425D757C30096E657 /* Extensions.swift in Sources */,
 				E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */,
 				E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */,
 				E110BBB125D757170096E657 /* ButtonState.swift in Sources */,
 				E110BBA825D756C00096E657 /* CustomARView.swift in Sources */,
 				E110BBAE25D756FD0096E657 /* SaveLoadState.swift in Sources */,
+				E110BBD025D762880096E657 /* UseView.swift in Sources */,
 				E110BBA525D753890096E657 /* SaveLoadMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

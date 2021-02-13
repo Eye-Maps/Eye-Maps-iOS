@@ -14,4 +14,5 @@ final class ARState: ObservableObject {
     @Published var thumbnailImage: UIImage?
     @Published var mappingStatus = "Mapping: "
     @Published var resetButton = ButtonState()
+    @Published var isConfigView = false
 }
