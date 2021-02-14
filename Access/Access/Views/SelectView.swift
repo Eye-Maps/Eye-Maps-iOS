@@ -93,7 +93,7 @@ struct SelectView: View {
             }) {
             LocationView(location: $locations[i], open: $open, config: $config)
                 .padding()
-                .accessibility(label: Text("\(locations[i].title) and \(locations[i].subtitle) Button"))
+                .accessibility(label: Text("\(locations[i].title) and \(locations[i].subtitle)"))
             }
         }
         .onDisappear() {

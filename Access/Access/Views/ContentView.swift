@@ -89,7 +89,7 @@ struct ContentView : View {
                 }) {
                     Text("Place Initial Anchor")
                         .multilineTextAlignment(.center)
-                }  .accessibility(label: Text("Place Initial Anchor Button"))
+                }  .accessibility(label: Text("Place Initial Anchor"))
                 }
                 Menu {
                                     
