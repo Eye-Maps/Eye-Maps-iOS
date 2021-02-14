@@ -8,6 +8,8 @@
 import SwiftUI
 import ARKit
 import RealityKit
+
+var placeIntitialAnchor = false
 extension CustomARView {
 
     /// Add the tap gesture recogniser
@@ -19,6 +21,32 @@ extension CustomARView {
             if addAudio {
                 self.rayCastingMethod(point: self.center)
                 addAudio = false
+            }
+            if placeIntitialAnchor {
+                guard let raycastQuery = self.makeRaycastQuery(from: self.center,
+                                                               allowing: .existingPlaneInfinite,
+                                                               alignment: .horizontal) else {
+                    
+                    print("failed first")
+                    return
+                }
+                
+                guard let result = self.session.raycast(raycastQuery).first else {
+                    print("failed")
+                    return
+                }
+                
+                // Remove exisitng anchor and add new anchor
+              
+                // Add ARAnchor into ARView.session, which can be persisted in WorldMap
+                self.virtualObjectAnchor = ARAnchor(
+                    name: self.virtualObjectAnchorName,
+                        transform: result.worldTransform
+                    )
+                self.anchorz.append(self.virtualObjectAnchor!)
+                self.session.add(anchor: self.virtualObjectAnchor!)
+            
+                placeIntitialAnchor = false
             }
         }
     }

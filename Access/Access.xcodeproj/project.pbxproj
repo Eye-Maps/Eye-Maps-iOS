@@ -43,9 +43,7 @@
 		E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2D25CF4E6200595460 /* Preview Assets.xcassets */; };
 		E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2F25CF4E6200595460 /* LaunchScreen.storyboard */; };
 		E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E133DA3925CF4E8200595460 /* pulse.mp3 */; };
-		E1BF3CC525D829B1000EE54E /* teapot.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC425D829B1000EE54E /* teapot.scn */; };
 		E1BF3CC925D83807000EE54E /* Box.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC825D83807000EE54E /* Box.scn */; };
-		E1BF3CCD25D83A1D000EE54E /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCC25D83A1D000EE54E /* teapot.usdz */; };
 		E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCF25D86F18000EE54E /* door.mp3 */; };
 		E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD025D86F18000EE54E /* steps.mp3 */; };
 		E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD425D86F3C000EE54E /* 002.mp3 */; };
@@ -93,9 +91,7 @@
 		E133DA3025CF4E6200595460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E133DA3225CF4E6200595460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E133DA3925CF4E8200595460 /* pulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pulse.mp3; sourceTree = "<group>"; };
-		E1BF3CC425D829B1000EE54E /* teapot.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = teapot.scn; sourceTree = "<group>"; };
 		E1BF3CC825D83807000EE54E /* Box.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Box.scn; sourceTree = "<group>"; };
-		E1BF3CCC25D83A1D000EE54E /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = teapot.usdz; path = "../../../../../Downloads/EyeMap-master-2/Access/Access/AR/teapot.usdz"; sourceTree = "<group>"; };
 		E1BF3CCF25D86F18000EE54E /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
 		E1BF3CD025D86F18000EE54E /* steps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = steps.mp3; sourceTree = "<group>"; };
 		E1BF3CD425D86F3C000EE54E /* 002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 002.mp3; sourceTree = "<group>"; };
@@ -161,11 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				E1248D3025D7FC4500C5F841 /* Foucs */,
-				E1BF3CC425D829B1000EE54E /* teapot.scn */,
 				E110BBB625D758420096E657 /* ARViewExtension.swift */,
 				E110BBA725D756C00096E657 /* CustomARView.swift */,
 				E1BF3CC825D83807000EE54E /* Box.scn */,
-				E1BF3CCC25D83A1D000EE54E /* teapot.usdz */,
 				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
 				E1248D1B25D7F90900C5F841 /* Plane.swift */,
 				E1248D0225D7D04800C5F841 /* AssetModel.swift */,
@@ -323,12 +317,10 @@
 				E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */,
 				E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */,
 				E110BBC325D75D480096E657 /* right.mp3 in Resources */,
-				E1BF3CCD25D83A1D000EE54E /* teapot.usdz in Resources */,
 				E1BF3D0B25D89A1A000EE54E /* GoogleService-Info.plist in Resources */,
 				E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */,
 				E133DA2B25CF4E6200595460 /* Assets.xcassets in Resources */,
 				E110BBC225D75D480096E657 /* left.mp3 in Resources */,
-				E1BF3CC525D829B1000EE54E /* teapot.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

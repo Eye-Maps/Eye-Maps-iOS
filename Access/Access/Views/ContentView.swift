@@ -36,10 +36,19 @@ struct ContentView : View {
     @State var mapKey = "ar.worldmap"
     @Binding var location: Location
     @State  var worldMapData: Data? = Data()
+    @State var showInitial = true
     var body: some View {
         ZStack {
             
             Color.clear
+                .onDisappear() {
+                    directions = []
+                    worldMapData = Data()
+                    transformations = []
+                    placeIntitialAnchor = false
+                    saveLoadState.loadButton.isHidden = true
+                    
+                }
                 .onAppear() {
                     //saveLoadState.loadButton.isEnabled = true
                     //saveLoadState.loadButton.isHidden = false
@@ -59,6 +68,9 @@ struct ContentView : View {
                             location.transformationsY.append(transform.y)
                             location.transformationsZ.append(transform.z)
                         }
+                        if placeIntitialAnchor {
+                            showInitial = false
+                        }
                     }
                 }
         VStack {
@@ -70,7 +82,14 @@ struct ContentView : View {
                
             HStack {
                 SaveLoadBtn()
-            
+                if showInitial {
+                Button(action: {
+                   placeIntitialAnchor = true
+                }) {
+                    Text("Place Initial Anchor")
+                        .multilineTextAlignment(.center)
+                }
+                }
                 Menu {
                                     
                     Button(action: {

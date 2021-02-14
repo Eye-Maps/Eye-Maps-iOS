@@ -132,6 +132,7 @@ struct SelectView: View {
                         .environmentObject(self.arState)
                         .onDisappear() {
                             config = false
+                            
                         }
                 }
             }
