@@ -82,13 +82,14 @@ struct ContentView : View {
                
             HStack {
                 SaveLoadBtn()
+                   
                 if showInitial {
                 Button(action: {
                    placeIntitialAnchor = true
                 }) {
                     Text("Place Initial Anchor")
                         .multilineTextAlignment(.center)
-                }
+                }  .accessibility(label: Text("Place Initial Anchor Button"))
                 }
                 Menu {
                                     

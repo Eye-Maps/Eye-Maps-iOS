@@ -34,6 +34,7 @@ struct AddView: View {
         } .padding()
         TextField("General Location", text: $location.title)
             .padding()
+            .accessibility(label: Text("General Location Textfield"))
         HStack {
         Text("Specific Location of Map")
             .font(.title)
@@ -41,7 +42,7 @@ struct AddView: View {
         } .padding()
         TextField("Specific Location", text: $location.subtitle)
             .padding()
-         
+            .accessibility(label: Text("Specific Location Textfield"))
             Toggle(isOn: $isPublic) {
                 Text("Make this map public")
                     .font(.headline)
@@ -65,7 +66,7 @@ struct AddView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                 }
-            }
+            } .accessibility(label: Text("Begin Mapping Button"))
             .onChange(of: locations, perform: { value in
                 
             

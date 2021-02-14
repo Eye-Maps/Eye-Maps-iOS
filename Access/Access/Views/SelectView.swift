@@ -81,7 +81,7 @@ struct SelectView: View {
             Image(systemName: "plus")
                 .font(.title)
                 .foregroundColor(.blue)
-        }
+        } .accessibility(label: Text("Add Locations"))
             
             
         } .padding()
@@ -93,6 +93,7 @@ struct SelectView: View {
             }) {
             LocationView(location: $locations[i], open: $open, config: $config)
                 .padding()
+                .accessibility(label: Text("\(locations[i].title) and \(locations[i].subtitle) Button"))
             }
         }
         .onDisappear() {

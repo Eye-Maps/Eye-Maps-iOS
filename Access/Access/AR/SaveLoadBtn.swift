@@ -22,11 +22,12 @@ struct SaveLoadBtn: View {
                     Text("Load")
                         .padding(.horizontal, 14)
                         .padding(.vertical, 8)
-                }
+                }  .accessibility(label: Text("Load World Button"))
                 .background(Color.blue)
                 .font(.system(size: 15))
                 .foregroundColor(.white)
                 .cornerRadius(8)
+               
                 //.disabled(!saveLoadState.loadButton.isEnabled)
             }
             
@@ -40,7 +41,8 @@ struct SaveLoadBtn: View {
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
                 
-            }
+                
+            } .accessibility(label: Text("Save World Button"))
             .background(saveLoadState.saveButton.isEnabled ? Color.blue : Color.gray)
             .font(.system(size: 15))
             .foregroundColor(.white)
