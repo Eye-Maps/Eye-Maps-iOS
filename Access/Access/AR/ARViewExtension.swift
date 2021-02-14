@@ -86,10 +86,10 @@ extension CustomARView {
                     // here’s a line connecting the two points, which might be useful for other things
                    
                     let distance = length(camera.position(relativeTo: box))
-                    print(distance)
+                  //  print(distance)
                     if distance < 1.1  {
                         if self.location.directions.count > step  {
-                        self.playSound(audioName: directions[step])
+                      //  self.playSound(audioName: directions[step])
                         }
                         stop = true
                         audioController.stop()

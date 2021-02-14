@@ -30,6 +30,7 @@ class CustomARView: ARView {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.vertical, .horizontal]
         configuration.environmentTexturing = .automatic
+       
         if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
             configuration.sceneReconstruction = .mesh
         }
@@ -77,26 +78,20 @@ class CustomARView: ARView {
     func setup() {
         self.session.run(defaultConfiguration)
         self.session.delegate = self
+        
         self.setupGestures()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient,  options: .duckOthers)
+        } catch {
+            
+        }
         //self.debugOptions = [ .showFeaturePoints ]
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             camera.position = self.cameraTransform.translation
             
-            let distance = length(self.focusEntity!.position(relativeTo: camera))
-           // print(distance)
-            if distance < 0.5 {
-                if !coolDown3 {
-                let utterance = AVSpeechUtterance(string: "Wall ahead")
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                utterance.rate = 0.5
-
-                let synthesizer = AVSpeechSynthesizer()
-               // synthesizer.speak(utterance)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                        coolDown3 = false
-                    }
-            }
-            }
+        
+           
+          
         }
     }
     

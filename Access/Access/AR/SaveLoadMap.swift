@@ -9,13 +9,14 @@ import Foundation
 import SwiftUI
 import RealityKit
 import ARKit
-
+import FirebaseStorage
 extension CustomARView {
     // MARK: - Persistence: Saving and Loading
     
     func loadExperience() {
          var worldMapData: Data? = {
             storedData.data(forKey: location.id.uuidString)
+            
         }()
         /// - Tag: ReadWorldMap
         let worldMap: ARWorldMap = {
@@ -64,6 +65,11 @@ extension CustomARView {
             do {
                 let data = try NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true)
                 self.storedData.set(data, forKey:self.location.id.uuidString)
+                self.location.worldData = data
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                
+                
                 DispatchQueue.main.async {
                     self.saveLoadState.loadButton.isHidden = false
                     self.saveLoadState.loadButton.isEnabled = true

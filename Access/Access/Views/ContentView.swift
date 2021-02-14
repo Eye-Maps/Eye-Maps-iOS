@@ -9,10 +9,13 @@ import RealityKit
 import ARKit
 import Vision
 import AVFoundation
+import FirebaseStorage
 var addAudio = false
 var directions = [String]()
 struct ContentView : View {
     
+    @EnvironmentObject var saveLoadState: SaveLoadState
+    @EnvironmentObject var arState: ARState
     @State var mapDataFromFile: Data? = Data()
 
     @State var mapSaveURL: URL = {
@@ -38,21 +41,33 @@ struct ContentView : View {
             
             Color.clear
                 .onAppear() {
+                    //saveLoadState.loadButton.isEnabled = true
+                    //saveLoadState.loadButton.isHidden = false
                     directions = location.directions
-                    worldMapData = location.worldData
-                    transformations = location.transformations
-                    let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                    
+                    for i in location.transformationsX.indices {
+                        transformations.append(SIMD3<Float>(location.transformationsX[i], location.transformationsY[i], location.transformationsZ[i]))
+                    }
+                    let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
                         location.directions = directions
                         location.worldData = worldMapData ?? Data()
-                        location.transformations = transformations
+                        location.transformationsX = []
+                        location.transformationsY = []
+                        location.transformationsZ = []
+                        for transform in transformations {
+                            location.transformationsX.append(transform.x)
+                            location.transformationsY.append(transform.y)
+                            location.transformationsZ.append(transform.z)
+                        }
                     }
                 }
         VStack {
             
-            ARViewContainer(location: $location).edgesIgnoringSafeArea(.all)
+            ARViewContainer(saveLoadState: _saveLoadState, location: $location).edgesIgnoringSafeArea(.all)
                 .onAppear() {
                     storedData.data(forKey: mapKey)
                    }
+               
             HStack {
                 SaveLoadBtn()
             
@@ -108,6 +123,7 @@ struct ContentView : View {
             
             
             } .padding()
+            
         }
     }
     }

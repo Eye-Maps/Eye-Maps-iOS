@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7195A9AF5AE214DE2940C1C /* Pods_Access.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2ED6CFC2BD4601790C3E1F /* Pods_Access.framework */; };
 		E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */; };
 		E110BBA525D753890096E657 /* SaveLoadMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBA425D753890096E657 /* SaveLoadMap.swift */; };
 		E110BBA825D756C00096E657 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBA725D756C00096E657 /* CustomARView.swift */; };
@@ -48,9 +49,13 @@
 		E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCF25D86F18000EE54E /* door.mp3 */; };
 		E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD025D86F18000EE54E /* steps.mp3 */; };
 		E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD425D86F3C000EE54E /* 002.mp3 */; };
+		E1BF3D0B25D89A1A000EE54E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3D0A25D89A1A000EE54E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BB28292DCD6ECB8E3F4DE41 /* Pods-Access.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.release.xcconfig"; path = "Target Support Files/Pods-Access/Pods-Access.release.xcconfig"; sourceTree = "<group>"; };
+		631F99B882274CBB95519210 /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.debug.xcconfig"; path = "Target Support Files/Pods-Access/Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
+		CC2ED6CFC2BD4601790C3E1F /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotAnchor.swift; sourceTree = "<group>"; };
 		E110BBA425D753890096E657 /* SaveLoadMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadMap.swift; sourceTree = "<group>"; };
 		E110BBA725D756C00096E657 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		E1BF3CCF25D86F18000EE54E /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
 		E1BF3CD025D86F18000EE54E /* steps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = steps.mp3; sourceTree = "<group>"; };
 		E1BF3CD425D86F3C000EE54E /* 002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 002.mp3; sourceTree = "<group>"; };
+		E1BF3D0A25D89A1A000EE54E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +107,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7195A9AF5AE214DE2940C1C /* Pods_Access.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F26D56C4E7B0C19DF95B83B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC2ED6CFC2BD4601790C3E1F /* Pods_Access.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBC57D4AF8D67B99525153C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				631F99B882274CBB95519210 /* Pods-Access.debug.xcconfig */,
+				5BB28292DCD6ECB8E3F4DE41 /* Pods-Access.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E110BBC625D75D4C0096E657 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +163,9 @@
 				E1248D3025D7FC4500C5F841 /* Foucs */,
 				E1BF3CC425D829B1000EE54E /* teapot.scn */,
 				E110BBB625D758420096E657 /* ARViewExtension.swift */,
+				E110BBA725D756C00096E657 /* CustomARView.swift */,
 				E1BF3CC825D83807000EE54E /* Box.scn */,
 				E1BF3CCC25D83A1D000EE54E /* teapot.usdz */,
-				E110BBA725D756C00096E657 /* CustomARView.swift */,
 				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
 				E1248D1B25D7F90900C5F841 /* Plane.swift */,
 				E1248D0225D7D04800C5F841 /* AssetModel.swift */,
@@ -191,6 +215,8 @@
 			children = (
 				E133DA2325CF4E6200595460 /* Access */,
 				E133DA2225CF4E6200595460 /* Products */,
+				BBC57D4AF8D67B99525153C4 /* Pods */,
+				8F26D56C4E7B0C19DF95B83B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +233,7 @@
 			children = (
 				E133DA2425CF4E6200595460 /* AppDelegate.swift */,
 				E133DA2625CF4E6200595460 /* SceneDelegate.swift */,
+				E1BF3D0A25D89A1A000EE54E /* GoogleService-Info.plist */,
 				E110BBC725D75D580096E657 /* Views */,
 				E1248D1425D7D45100C5F841 /* Location */,
 				E1248D0F25D7D43E00C5F841 /* Data */,
@@ -235,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E133DA3525CF4E6200595460 /* Build configuration list for PBXNativeTarget "Access" */;
 			buildPhases = (
+				546B7D1AB95B8C3AF7663C1F /* [CP] Check Pods Manifest.lock */,
 				E133DA1D25CF4E6200595460 /* Sources */,
 				E133DA1E25CF4E6200595460 /* Frameworks */,
 				E133DA1F25CF4E6200595460 /* Resources */,
+				57E8A7CC5C99AA0130D57241 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,6 +324,7 @@
 				E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */,
 				E110BBC325D75D480096E657 /* right.mp3 in Resources */,
 				E1BF3CCD25D83A1D000EE54E /* teapot.usdz in Resources */,
+				E1BF3D0B25D89A1A000EE54E /* GoogleService-Info.plist in Resources */,
 				E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */,
 				E133DA2B25CF4E6200595460 /* Assets.xcassets in Resources */,
 				E110BBC225D75D480096E657 /* left.mp3 in Resources */,
@@ -303,6 +333,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		546B7D1AB95B8C3AF7663C1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Access-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57E8A7CC5C99AA0130D57241 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E133DA1D25CF4E6200595460 /* Sources */ = {
@@ -471,6 +543,7 @@
 		};
 		E133DA3625CF4E6200595460 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 631F99B882274CBB95519210 /* Pods-Access.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +565,7 @@
 		};
 		E133DA3725CF4E6200595460 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BB28292DCD6ECB8E3F4DE41 /* Pods-Access.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

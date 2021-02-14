@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import Firebase
+import FirebaseFirestoreSwift
 struct SelectView: View {
     @State var locations = [Location]()
     @State var open = false
@@ -15,7 +16,9 @@ struct SelectView: View {
     @State var i3 = 0
     @State var ready = false
     @ObservedObject var locationManager = LocationManager()
-
+    @EnvironmentObject var saveLoadState: SaveLoadState
+    @EnvironmentObject var arState: ARState
+    let storedData = UserDefaults.standard
         var userLatitude: Double {
             return locationManager.lastLocation?.coordinate.latitude ?? 0
         }
@@ -55,9 +58,15 @@ struct SelectView: View {
                     print(error.localizedDescription)
                     
                 }
+                
+                    self.loadNearby() { userData in
+                        //Get completion handler data results from loadData function and set it as the recentPeople local variable
+                        for data in userData {
+                            self.locations.append(data)
+                        }
                     
+                    }
                     ready = true
-                    
                     }
             if ready {
                 ScrollView {
@@ -75,7 +84,7 @@ struct SelectView: View {
             
             
         } .padding()
-        ForEach(locations.indices) { i in
+        ForEach(locations.indices, id: \.self) { i in
             Button(action: {
                 config = true
                 open = true
@@ -85,12 +94,12 @@ struct SelectView: View {
                 .padding()
             }
         }
-        .onChange(of: locations, perform: { value in
+        .onDisappear() {
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(locations) {
             if let json = String(data: encoded, encoding: .utf8) {
-                print(json)
+                //print(json)
                 do {
                     var url = self.getDocumentsDirectory().appendingPathComponent("locations.txt")
                    
@@ -104,18 +113,23 @@ struct SelectView: View {
            
         }
        
-    })
+    }
+       
         Spacer()
             .sheet(isPresented: $open) {
                 ZStack {
                 if add {
                    AddView(locations: $locations)
+                    .environmentObject(self.saveLoadState)
+                    .environmentObject(self.arState)
                     .onDisappear() {
                         add = false
                     }
                 }
                 if config {
                     ContentView(location: $locations[i3])
+                        .environmentObject(self.saveLoadState)
+                        .environmentObject(self.arState)
                         .onDisappear() {
                             config = false
                         }
@@ -125,6 +139,47 @@ struct SelectView: View {
             }
             }
     }
+        }
+    }
+    func loadNearby(performAction: @escaping ([Location]) -> Void) {
+        let db = Firestore.firestore()
+     let docRef = db.collection("locations")
+        var userList:[Location] = []
+        //Get every single document under collection users
+        let lat = 0.0144927536231884
+            let lon = 0.0181818181818182
+
+            let lowerLat = userLatitude - (lat * 10)
+            let lowerLon = userLongitude - (lon * 10)
+
+            let greaterLat = userLatitude + (lat * 10)
+            let greaterLon = userLongitude + (lon * 10)
+
+            let lesserGeopoint = GeoPoint(latitude: lowerLat, longitude: lowerLon)
+            let greaterGeopoint = GeoPoint(latitude: greaterLat, longitude: greaterLon)
+        let query = docRef.whereField("location", isGreaterThan: lesserGeopoint).whereField("location", isLessThan: greaterGeopoint)
+        docRef.getDocuments { (documents, error) in
+           
+        for document in documents!.documents {
+                let result = Result {
+                    try document.data(as: Location.self)
+                }
+                switch result {
+                    case .success(let user):
+                        if let user = user {
+                            userList.append(user)
+                 
+                        } else {
+                            
+                            print("Document does not exist")
+                        }
+                    case .failure(let error):
+                        print("Error decoding user: \(error)")
+                    }
+     
+        
+            }
+              performAction(userList)
         }
     }
     func getDocumentsDirectory() -> URL {
