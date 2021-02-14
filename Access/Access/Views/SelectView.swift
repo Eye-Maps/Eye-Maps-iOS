@@ -30,6 +30,7 @@ struct SelectView: View {
         ZStack {
             Color.clear
                 .onAppear() {
+                   
                     let url = self.getDocumentsDirectory().appendingPathComponent("locations.txt")
                     do {
                        
@@ -64,7 +65,7 @@ struct SelectView: View {
                         for data in userData {
                             self.locations.append(data)
                         }
-                    
+                        locations = locations.removeDuplicates()
                     }
                     ready = true
                     }
@@ -195,5 +196,19 @@ struct SelectView: View {
 struct SelectView_Previews: PreviewProvider {
     static var previews: some View {
         SelectView()
+    }
+}
+
+extension Array where Element:Equatable {
+    func removeDuplicates() -> [Element] {
+        var result = [Element]()
+
+        for value in self {
+            if result.contains(value) == false {
+                result.append(value)
+            }
+        }
+
+        return result
     }
 }
