@@ -124,19 +124,18 @@ struct SelectView: View {
                    AddView(locations: $locations)
                     .environmentObject(self.saveLoadState)
                     .environmentObject(self.arState)
-                    .onDisappear() {
-                        add = false
-                    }
+                  
                 }
                 if config {
                     ContentView(location: $locations[i3])
                         .environmentObject(self.saveLoadState)
                         .environmentObject(self.arState)
-                        .onDisappear() {
-                            config = false
-                            
-                        }
+                       
                 }
+            }  .onDisappear() {
+                add = false
+                config = false
+                
             }
        }
             }

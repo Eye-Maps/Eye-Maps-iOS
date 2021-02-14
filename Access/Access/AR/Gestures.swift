@@ -28,11 +28,13 @@ extension CustomARView {
                                                                alignment: .horizontal) else {
                     
                     print("failed first")
+                    placed = false
                     return
                 }
                 
                 guard let result = self.session.raycast(raycastQuery).first else {
                     print("failed")
+                    placed = false
                     return
                 }
                 
@@ -47,6 +49,7 @@ extension CustomARView {
                 self.session.add(anchor: self.virtualObjectAnchor!)
             
                 placeIntitialAnchor = false
+                placed = true
             }
         }
     }
@@ -61,11 +64,13 @@ extension CustomARView {
                                                        alignment: .horizontal) else {
             
             print("failed first")
+            placed = false
             return
         }
         
         guard let result = self.session.raycast(raycastQuery).first else {
             print("failed")
+            placed = false
             return
         }
       
@@ -75,7 +80,7 @@ extension CustomARView {
             distances.append(distance)
             transformations.append(transformation.translation)
            // print(distance)
-        
+            placed = true
         }
         i += 1
         

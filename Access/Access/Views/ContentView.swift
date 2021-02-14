@@ -12,6 +12,7 @@ import AVFoundation
 import FirebaseStorage
 var addAudio = false
 var directions = [String]()
+var placed = false
 struct ContentView : View {
     
     @EnvironmentObject var saveLoadState: SaveLoadState
@@ -68,9 +69,12 @@ struct ContentView : View {
                             location.transformationsY.append(transform.y)
                             location.transformationsZ.append(transform.z)
                         }
-                        if placeIntitialAnchor {
+                        if placed {
                             showInitial = false
+                        } else {
+                            showInitial = true
                         }
+                        
                     }
                 }
         VStack {
@@ -85,7 +89,7 @@ struct ContentView : View {
                    
                 if showInitial {
                 Button(action: {
-                   placeIntitialAnchor = true
+                    placeIntitialAnchor = true
                 }) {
                     Text("Place Initial Anchor")
                         .multilineTextAlignment(.center)
