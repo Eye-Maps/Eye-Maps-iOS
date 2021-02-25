@@ -62,10 +62,11 @@ struct SelectView: View {
                     self.loadNearby() { userData in
                         //Get completion handler data results from loadData function and set it as the recentPeople local variable
                         for data in userData {
-                            //self.locations.append(data)
+                            self.locations.append(data)
                         }
-                        //locations = locations.removeDuplicates()
+                        
                     }
+                    locations = locations.removeDuplicates()
                     ready = true
                     }
             if ready {
@@ -213,7 +214,7 @@ struct SelectView: View {
             let lesserGeopoint = GeoPoint(latitude: lowerLat, longitude: lowerLon)
             let greaterGeopoint = GeoPoint(latitude: greaterLat, longitude: greaterLon)
         let query = docRef.whereField("location", isGreaterThan: lesserGeopoint).whereField("location", isLessThan: greaterGeopoint)
-        docRef.getDocuments { (documents, error) in
+        query.getDocuments { (documents, error) in
            
         for document in documents!.documents {
                 let result = Result {
