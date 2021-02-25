@@ -140,15 +140,15 @@ struct SelectView: View {
     }
        
         Spacer()
-            .sheet(isPresented: $open) {
-                ZStack {
-                if add {
+            .sheet(isPresented: $add) {
+               // ZStack {
+               // if add {
                    AddView(locations: $locations)
                    
                   
-                }
+                //}
             
-            }
+           // }
             }
             }
                 }
