@@ -8,42 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A7195A9AF5AE214DE2940C1C /* Pods_Access.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2ED6CFC2BD4601790C3E1F /* Pods_Access.framework */; };
-		E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */; };
-		E110BBA525D753890096E657 /* SaveLoadMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBA425D753890096E657 /* SaveLoadMap.swift */; };
-		E110BBA825D756C00096E657 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBA725D756C00096E657 /* CustomARView.swift */; };
-		E110BBAB25D756F30096E657 /* ARState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBAA25D756F30096E657 /* ARState.swift */; };
-		E110BBAE25D756FD0096E657 /* SaveLoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBAD25D756FD0096E657 /* SaveLoadState.swift */; };
-		E110BBB125D757170096E657 /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBB025D757170096E657 /* ButtonState.swift */; };
-		E110BBB425D757C30096E657 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBB325D757C30096E657 /* Extensions.swift */; };
-		E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBB625D758420096E657 /* ARViewExtension.swift */; };
-		E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */; };
 		E110BBC125D75D480096E657 /* arrived.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBD25D75D470096E657 /* arrived.mp3 */; };
 		E110BBC225D75D480096E657 /* left.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBE25D75D470096E657 /* left.mp3 */; };
 		E110BBC325D75D480096E657 /* right.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBBF25D75D480096E657 /* right.mp3 */; };
 		E110BBC425D75D480096E657 /* straight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E110BBC025D75D480096E657 /* straight.mp3 */; };
-		E1248CFD25D7CF5700C5F841 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248CFC25D7CF5700C5F841 /* Gestures.swift */; };
-		E1248D0325D7D04800C5F841 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0225D7D04800C5F841 /* AssetModel.swift */; };
 		E1248D0725D7D3D400C5F841 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0625D7D3D400C5F841 /* SelectView.swift */; };
 		E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0925D7D3DA00C5F841 /* LocationView.swift */; };
 		E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D0C25D7D43A00C5F841 /* Location.swift */; };
 		E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1125D7D44E00C5F841 /* LocationManager.swift */; };
 		E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1725D7D5D100C5F841 /* AddView.swift */; };
-		E1248D1C25D7F90A00C5F841 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D1B25D7F90900C5F841 /* Plane.swift */; };
-		E1248D2725D7FB2900C5F841 /* FocusEntity+Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */; };
-		E1248D2825D7FB2900C5F841 /* float4x4+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */; };
-		E1248D2925D7FB2900C5F841 /* FocusEntity+Colored.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */; };
-		E1248D2A25D7FB2900C5F841 /* FocusEntityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */; };
-		E1248D2B25D7FB2900C5F841 /* FocusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2425D7FB2900C5F841 /* FocusEntity.swift */; };
-		E1248D2C25D7FB2900C5F841 /* FocusEntity+Classic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */; };
-		E1248D2D25D7FB2900C5F841 /* FocusEntity+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */; };
 		E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2425CF4E6200595460 /* AppDelegate.swift */; };
 		E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2625CF4E6200595460 /* SceneDelegate.swift */; };
-		E133DA2925CF4E6200595460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E133DA2825CF4E6200595460 /* ContentView.swift */; };
 		E133DA2B25CF4E6200595460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2A25CF4E6200595460 /* Assets.xcassets */; };
 		E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2D25CF4E6200595460 /* Preview Assets.xcassets */; };
 		E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2F25CF4E6200595460 /* LaunchScreen.storyboard */; };
 		E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E133DA3925CF4E8200595460 /* pulse.mp3 */; };
-		E1BF3CC925D83807000EE54E /* Box.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC825D83807000EE54E /* Box.scn */; };
 		E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCF25D86F18000EE54E /* door.mp3 */; };
 		E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD025D86F18000EE54E /* steps.mp3 */; };
 		E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD425D86F3C000EE54E /* 002.mp3 */; };
@@ -54,44 +33,23 @@
 		5BB28292DCD6ECB8E3F4DE41 /* Pods-Access.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.release.xcconfig"; path = "Target Support Files/Pods-Access/Pods-Access.release.xcconfig"; sourceTree = "<group>"; };
 		631F99B882274CBB95519210 /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.debug.xcconfig"; path = "Target Support Files/Pods-Access/Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2ED6CFC2BD4601790C3E1F /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotAnchor.swift; sourceTree = "<group>"; };
-		E110BBA425D753890096E657 /* SaveLoadMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadMap.swift; sourceTree = "<group>"; };
-		E110BBA725D756C00096E657 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
-		E110BBAA25D756F30096E657 /* ARState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARState.swift; sourceTree = "<group>"; };
-		E110BBAD25D756FD0096E657 /* SaveLoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadState.swift; sourceTree = "<group>"; };
-		E110BBB025D757170096E657 /* ButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
-		E110BBB325D757C30096E657 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E110BBB625D758420096E657 /* ARViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewExtension.swift; sourceTree = "<group>"; };
-		E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadBtn.swift; sourceTree = "<group>"; };
 		E110BBBD25D75D470096E657 /* arrived.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arrived.mp3; sourceTree = "<group>"; };
 		E110BBBE25D75D470096E657 /* left.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = left.mp3; sourceTree = "<group>"; };
 		E110BBBF25D75D480096E657 /* right.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = right.mp3; sourceTree = "<group>"; };
 		E110BBC025D75D480096E657 /* straight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = straight.mp3; sourceTree = "<group>"; };
-		E1248CFC25D7CF5700C5F841 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
-		E1248D0225D7D04800C5F841 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		E1248D0625D7D3D400C5F841 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
 		E1248D0925D7D3DA00C5F841 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		E1248D0C25D7D43A00C5F841 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E1248D1125D7D44E00C5F841 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1248D1725D7D5D100C5F841 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
-		E1248D1B25D7F90900C5F841 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
-		E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Segment.swift"; sourceTree = "<group>"; };
-		E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "float4x4+Extension.swift"; sourceTree = "<group>"; };
-		E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Colored.swift"; sourceTree = "<group>"; };
-		E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusEntityComponent.swift; sourceTree = "<group>"; };
-		E1248D2425D7FB2900C5F841 /* FocusEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusEntity.swift; sourceTree = "<group>"; };
-		E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Classic.swift"; sourceTree = "<group>"; };
-		E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusEntity+Alignment.swift"; sourceTree = "<group>"; };
 		E133DA2125CF4E6200595460 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E133DA2425CF4E6200595460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E133DA2625CF4E6200595460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E133DA2825CF4E6200595460 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E133DA2A25CF4E6200595460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E133DA2D25CF4E6200595460 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E133DA3025CF4E6200595460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E133DA3225CF4E6200595460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E133DA3925CF4E8200595460 /* pulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pulse.mp3; sourceTree = "<group>"; };
-		E1BF3CC825D83807000EE54E /* Box.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Box.scn; sourceTree = "<group>"; };
 		E1BF3CCF25D86F18000EE54E /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
 		E1BF3CD025D86F18000EE54E /* steps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = steps.mp3; sourceTree = "<group>"; };
 		E1BF3CD425D86F3C000EE54E /* 002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 002.mp3; sourceTree = "<group>"; };
@@ -145,33 +103,11 @@
 		E110BBC725D75D580096E657 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E133DA2825CF4E6200595460 /* ContentView.swift */,
 				E1248D0625D7D3D400C5F841 /* SelectView.swift */,
 				E1248D1725D7D5D100C5F841 /* AddView.swift */,
 				E1248D0925D7D3DA00C5F841 /* LocationView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E110BBC925D75D5E0096E657 /* AR */ = {
-			isa = PBXGroup;
-			children = (
-				E1248D3025D7FC4500C5F841 /* Foucs */,
-				E110BBB625D758420096E657 /* ARViewExtension.swift */,
-				E110BBA725D756C00096E657 /* CustomARView.swift */,
-				E1BF3CC825D83807000EE54E /* Box.scn */,
-				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
-				E1248D1B25D7F90900C5F841 /* Plane.swift */,
-				E1248D0225D7D04800C5F841 /* AssetModel.swift */,
-				E110BBBA25D759D20096E657 /* SaveLoadBtn.swift */,
-				E110BBA425D753890096E657 /* SaveLoadMap.swift */,
-				E110BBB325D757C30096E657 /* Extensions.swift */,
-				E110BBAA25D756F30096E657 /* ARState.swift */,
-				E110BBB025D757170096E657 /* ButtonState.swift */,
-				E110BBAD25D756FD0096E657 /* SaveLoadState.swift */,
-				E110BB9F25D74FFF0096E657 /* SnapshotAnchor.swift */,
-			);
-			path = AR;
 			sourceTree = "<group>";
 		};
 		E1248D0F25D7D43E00C5F841 /* Data */ = {
@@ -188,20 +124,6 @@
 				E1248D1125D7D44E00C5F841 /* LocationManager.swift */,
 			);
 			path = Location;
-			sourceTree = "<group>";
-		};
-		E1248D3025D7FC4500C5F841 /* Foucs */ = {
-			isa = PBXGroup;
-			children = (
-				E1248D2025D7FB2900C5F841 /* FocusEntity+Segment.swift */,
-				E1248D2125D7FB2900C5F841 /* float4x4+Extension.swift */,
-				E1248D2225D7FB2900C5F841 /* FocusEntity+Colored.swift */,
-				E1248D2325D7FB2900C5F841 /* FocusEntityComponent.swift */,
-				E1248D2425D7FB2900C5F841 /* FocusEntity.swift */,
-				E1248D2525D7FB2900C5F841 /* FocusEntity+Classic.swift */,
-				E1248D2625D7FB2900C5F841 /* FocusEntity+Alignment.swift */,
-			);
-			path = Foucs;
 			sourceTree = "<group>";
 		};
 		E133DA1825CF4E6200595460 = {
@@ -231,7 +153,6 @@
 				E110BBC725D75D580096E657 /* Views */,
 				E1248D1425D7D45100C5F841 /* Location */,
 				E1248D0F25D7D43E00C5F841 /* Data */,
-				E110BBC925D75D5E0096E657 /* AR */,
 				E110BBC625D75D4C0096E657 /* Audio */,
 				E133DA2A25CF4E6200595460 /* Assets.xcassets */,
 				E133DA2F25CF4E6200595460 /* LaunchScreen.storyboard */,
@@ -260,7 +181,7 @@
 				E133DA1D25CF4E6200595460 /* Sources */,
 				E133DA1E25CF4E6200595460 /* Frameworks */,
 				E133DA1F25CF4E6200595460 /* Resources */,
-				57E8A7CC5C99AA0130D57241 /* [CP] Embed Pods Frameworks */,
+				4D4A2CA2A56483053511C319 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,7 +231,6 @@
 			files = (
 				E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */,
 				E1BF3CD525D86F3C000EE54E /* 002.mp3 in Resources */,
-				E1BF3CC925D83807000EE54E /* Box.scn in Resources */,
 				E110BBC425D75D480096E657 /* straight.mp3 in Resources */,
 				E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */,
 				E110BBC125D75D480096E657 /* arrived.mp3 in Resources */,
@@ -327,6 +247,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D4A2CA2A56483053511C319 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		546B7D1AB95B8C3AF7663C1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,23 +286,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57E8A7CC5C99AA0130D57241 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Access/Pods-Access-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -375,31 +295,11 @@
 			files = (
 				E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */,
 				E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */,
-				E1248D1C25D7F90A00C5F841 /* Plane.swift in Sources */,
 				E133DA2725CF4E6200595460 /* SceneDelegate.swift in Sources */,
-				E110BBA025D74FFF0096E657 /* SnapshotAnchor.swift in Sources */,
-				E1248D2825D7FB2900C5F841 /* float4x4+Extension.swift in Sources */,
-				E1248CFD25D7CF5700C5F841 /* Gestures.swift in Sources */,
 				E1248D0D25D7D43A00C5F841 /* Location.swift in Sources */,
-				E133DA2925CF4E6200595460 /* ContentView.swift in Sources */,
-				E1248D2D25D7FB2900C5F841 /* FocusEntity+Alignment.swift in Sources */,
 				E1248D0725D7D3D400C5F841 /* SelectView.swift in Sources */,
 				E1248D1225D7D44E00C5F841 /* LocationManager.swift in Sources */,
-				E110BBAB25D756F30096E657 /* ARState.swift in Sources */,
 				E1248D1825D7D5D100C5F841 /* AddView.swift in Sources */,
-				E110BBB425D757C30096E657 /* Extensions.swift in Sources */,
-				E1248D2C25D7FB2900C5F841 /* FocusEntity+Classic.swift in Sources */,
-				E110BBB725D758420096E657 /* ARViewExtension.swift in Sources */,
-				E110BBBB25D759D20096E657 /* SaveLoadBtn.swift in Sources */,
-				E110BBB125D757170096E657 /* ButtonState.swift in Sources */,
-				E110BBA825D756C00096E657 /* CustomARView.swift in Sources */,
-				E110BBAE25D756FD0096E657 /* SaveLoadState.swift in Sources */,
-				E1248D0325D7D04800C5F841 /* AssetModel.swift in Sources */,
-				E110BBA525D753890096E657 /* SaveLoadMap.swift in Sources */,
-				E1248D2A25D7FB2900C5F841 /* FocusEntityComponent.swift in Sources */,
-				E1248D2B25D7FB2900C5F841 /* FocusEntity.swift in Sources */,
-				E1248D2925D7FB2900C5F841 /* FocusEntity+Colored.swift in Sources */,
-				E1248D2725D7FB2900C5F841 /* FocusEntity+Segment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
