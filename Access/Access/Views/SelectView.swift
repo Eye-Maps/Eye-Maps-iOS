@@ -174,7 +174,7 @@ struct SelectView: View {
             let greaterGeopoint = GeoPoint(latitude: greaterLat, longitude: greaterLon)
         let query = docRef.whereField("title", isEqualTo: search)
         query.getDocuments { (documents, error) in
-            if !documents.isEmpty ?? true {
+            if !(documents?.isEmpty ?? true) {
         for document in documents!.documents {
                 let result = Result {
                     try document.data(as: Location.self)
