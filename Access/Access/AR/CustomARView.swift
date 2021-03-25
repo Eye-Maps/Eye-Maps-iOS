@@ -8,9 +8,10 @@
 import SwiftUI
 import RealityKit
 import ARKit
-
+import Vision
 var transformations = [SIMD3<Float>]()
 var camera = Entity()
+
 class CustomARView: ARView {
     enum FocusStyleChoices {
       case classic
@@ -25,19 +26,39 @@ class CustomARView: ARView {
     var arState: ARState
     var distances = [SIMD3<Float>]()
     var anchorz = [ARAnchor]()
-    
+   
+
+    let queue = DispatchQueue(label: "thread-safe-obj", attributes: .concurrent)
+     lazy var classificationRequest: VNCoreMLRequest = {
+      do {
+        // 2
+        let model = try VNCoreMLModel(for: Resnet50().model)
+        // 3
+        let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+           self?.processClassifications(for: request, error: error)
+       })
+       request.imageCropAndScaleOption = .centerCrop
+           return request
+      } catch {
+        // 5
+        fatalError("Failed to load Vision ML model: \(error)")
+      }
+    }()
     var defaultConfiguration: ARWorldTrackingConfiguration {
         let configuration = ARWorldTrackingConfiguration()
+        
         configuration.planeDetection = [.vertical, .horizontal]
         configuration.environmentTexturing = .automatic
-       
+
         if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-            configuration.sceneReconstruction = .mesh
+            configuration.sceneReconstruction = .meshWithClassification
+            configuration.frameSemantics = .sceneDepth
+            
         }
         return configuration
     }
     // MARK: - Init and setup
-    
+  
     init(frame frameRect: CGRect, saveLoadState: SaveLoadState, arState: ARState, location: Location) {
         self.saveLoadState = saveLoadState
         self.arState = arState
@@ -70,7 +91,7 @@ class CustomARView: ARView {
     @objc required dynamic init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+   
     @objc required dynamic init(frame frameRect: CGRect) {
         fatalError("init(frame:) has not been implemented")
     }
@@ -78,6 +99,7 @@ class CustomARView: ARView {
     func setup() {
         self.session.run(defaultConfiguration)
         self.session.delegate = self
+        
         
         self.setupGestures()
         do {

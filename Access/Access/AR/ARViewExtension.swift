@@ -162,12 +162,71 @@ extension CustomARView: ARSessionDelegate {
     // We add an anchor in `handleTap` function, it will then call this function.
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         print("did add anchor: \(anchors.count) anchors in total")
-        
+       
         for anchor in anchors {
             addAnchorEntityToScene(anchor: anchor)
         }
     
     }
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+      
+        DispatchQueue.global(qos: .userInitiated).async {
+        //queue.async(flags: .barrier) {
+            let handler = VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, orientation: .up)
+            do {
+                try handler.perform([self.classificationRequest])
+            } catch {
+                /*
+                 This handler catches general image processing errors. The `classificationRequest`'s
+                 completion handler `processClassifications(_:error:)` catches errors specific
+                 to processing that request.
+                 */
+                print("Failed to perform classification.\n\(error.localizedDescription)")
+            }
+        }
+        
+        //let depthData = frame.sceneDepth?.depthMap
+        let depthDataMap = frame.sceneDepth?.depthMap
+           //## Data Analysis ##
 
+           // Useful data
+        if depthDataMap != nil {
+        let width = CVPixelBufferGetWidth(depthDataMap!) //768 on an iPhone 7+
+        let height = CVPixelBufferGetHeight(depthDataMap!) //576 on an iPhone 7+
+        CVPixelBufferLockBaseAddress(depthDataMap!, CVPixelBufferLockFlags(rawValue: 0))
+
+           // Convert the base address to a safe pointer of the appropriate type
+        let floatBuffer = unsafeBitCast(CVPixelBufferGetBaseAddress(depthDataMap!), to: UnsafeMutablePointer<Float32>.self)
+
+           // Read the data (returns value of type Float)
+           // Accessible values : (width-1) * (height-1) = 767 * 575
+
+           let distanceAtXYPoint = floatBuffer[Int(767 * 575)]
+        print(distanceAtXYPoint)
+            meters = Double(distanceAtXYPoint)
+        }
+    }
+   
+
+    // write
+    
+    func processClassifications(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            guard let results = request.results else {
+                //print("Unable to classify image.\n\(error!.localizedDescription)")
+                return
+            }
+            // The `results` will always be `VNClassificationObservation`s, as specified by the Core ML model in this project.
+            let classifications = results as! [VNClassificationObservation]
+            if !classifications.isEmpty {
+               
+               // if classifications.last!.confidence > 0.2 {
+                    print(classifications.first!.identifier)
+                    classification = classifications.last!.identifier
+            //}
+            }
+}
+    }
 }
 var coolDown2 = false
+

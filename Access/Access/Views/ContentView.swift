@@ -38,6 +38,8 @@ struct ContentView : View {
     @Binding var location: Location
     @State  var worldMapData: Data? = Data()
     @State var showInitial = true
+    @State var distance = 0.0
+    @State var classify = "x"
     var body: some View {
         ZStack {
             
@@ -78,6 +80,17 @@ struct ContentView : View {
                     }
                 }
         VStack {
+            Text("\(distance) meters")
+                .font(.headline)
+                .onChange(of: meters, perform: { value in
+                    distance = meters
+                })
+            Text("\(classify)")
+                .font(.headline)
+              
+                .onChange(of: classification, perform: { value in
+                    classify = classification
+                })
             
             ARViewContainer(saveLoadState: _saveLoadState, location: $location).edgesIgnoringSafeArea(.all)
                 .onAppear() {
@@ -246,3 +259,5 @@ struct ARViewContainer: UIViewRepresentable {
     }
 
 }
+var meters = 0.0
+var classification = "None"

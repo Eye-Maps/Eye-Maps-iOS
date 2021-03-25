@@ -43,6 +43,7 @@
 		E133DA2E25CF4E6200595460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2D25CF4E6200595460 /* Preview Assets.xcassets */; };
 		E133DA3125CF4E6200595460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E133DA2F25CF4E6200595460 /* LaunchScreen.storyboard */; };
 		E133DA3A25CF4E8200595460 /* pulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E133DA3925CF4E8200595460 /* pulse.mp3 */; };
+		E14EA72F260CE53900871292 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E14EA72E260CE53900871292 /* Resnet50.mlmodel */; };
 		E1BF3CC925D83807000EE54E /* Box.scn in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CC825D83807000EE54E /* Box.scn */; };
 		E1BF3CD125D86F18000EE54E /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CCF25D86F18000EE54E /* door.mp3 */; };
 		E1BF3CD225D86F18000EE54E /* steps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1BF3CD025D86F18000EE54E /* steps.mp3 */; };
@@ -91,6 +92,7 @@
 		E133DA3025CF4E6200595460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E133DA3225CF4E6200595460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E133DA3925CF4E8200595460 /* pulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pulse.mp3; sourceTree = "<group>"; };
+		E14EA72E260CE53900871292 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		E1BF3CC825D83807000EE54E /* Box.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Box.scn; sourceTree = "<group>"; };
 		E1BF3CCF25D86F18000EE54E /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
 		E1BF3CD025D86F18000EE54E /* steps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = steps.mp3; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				E1248D3025D7FC4500C5F841 /* Foucs */,
 				E110BBB625D758420096E657 /* ARViewExtension.swift */,
+				E14EA72E260CE53900871292 /* Resnet50.mlmodel */,
 				E110BBA725D756C00096E657 /* CustomARView.swift */,
 				E1BF3CC825D83807000EE54E /* Box.scn */,
 				E1248CFC25D7CF5700C5F841 /* Gestures.swift */,
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14EA72F260CE53900871292 /* Resnet50.mlmodel in Sources */,
 				E133DA2525CF4E6200595460 /* AppDelegate.swift in Sources */,
 				E1248D0A25D7D3DA00C5F841 /* LocationView.swift in Sources */,
 				E1248D1C25D7F90A00C5F841 /* Plane.swift in Sources */,
